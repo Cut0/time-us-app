@@ -1,24 +1,29 @@
 # time-us-app
 
-## Project setup
+## クローンしたらやってね
+
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### 開発用にコンパイル
+
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### production 用にビルド
+
 ```
 yarn build
 ```
 
-### Lints and fixes files
+### ファイル整形
+
 ```
 yarn lint
 ```
 
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).
