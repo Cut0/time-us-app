@@ -12,14 +12,14 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Sign In',
+    name: 'サインイン',
     component: SignIn
   },
-  { path: '/setting', name: 'Setting', component: Setting },
-  { path: '/timer', name: 'Timer', component: Timer },
-  { path: '/search', name: 'Search', component: Search },
-  { path: '/ranking', name: 'Ranking', component: Ranking },
-  { path: '/:id', name: 'Profile', component: Profile }
+  { path: '/setting', name: '設定', component: Setting },
+  { path: '/timer', name: 'タイマー', component: Timer },
+  { path: '/search', name: '検索', component: Search },
+  { path: '/ranking', name: 'ランキング', component: Ranking },
+  { path: '/:id', name: 'プロフィール', component: Profile }
 ]
 
 const router = new VueRouter({
