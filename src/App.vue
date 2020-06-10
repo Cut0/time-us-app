@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-app
+  v-app(style="background: #FAFAFA;")
     v-app-bar(
       app
       fixed
