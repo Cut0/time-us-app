@@ -1,5 +1,4 @@
 <template lang="pug">
-.tes
   v-app
     v-app-bar(
       app
@@ -14,7 +13,8 @@
     v-bottom-navigation(
       fixed
       grow
-      color="light-green")
+      color="light-green"
+      background-color="grey lighten-5")
       v-btn(to="/timer")
         v-icon mdi-clock
       v-btn(to="/search")
