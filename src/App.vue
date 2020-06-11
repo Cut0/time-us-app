@@ -8,7 +8,7 @@
       v-app-bar-nav-icon
       v-toolbar-title {{this.$route.name}}
       v-spacer
-    v-content
+    v-content.pb-12
       router-view
     v-bottom-navigation(
       fixed
