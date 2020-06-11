@@ -8,8 +8,34 @@
       v-app-bar-nav-icon
       v-toolbar-title {{this.$route.name}}
       v-spacer
-    v-content.ppers
-      router-view
+
+      template(
+        v-slot:extension
+        v-if="($route.name==='ランキング'||$route.name==='タイマー'||$route.name==='検索')")
+        v-tabs(
+          v-model="tabs.timerTab"
+          fixed-tabs
+          centered
+          v-if="$route.name==='タイマー'")
+          v-tab(key="0") 本日
+          v-tab(key="1") ログ
+        v-tabs(
+          v-model="tabs.rankingTab"
+          fixed-tabs
+          centered
+          v-if="$route.name==='ランキング'")
+          v-tab(key="0") 本日
+          v-tab(key="1") 週間
+          v-tab(key="2") 月間
+          v-tab(key="3") 累計
+        v-text-field(
+          label="ユーザー名を入力してください"
+          prepend-inner-icon="mdi-magnify"
+          color="white"
+          hide-details
+          v-if="$route.name==='検索'")
+    v-content
+      router-view(:tabs="tabs")
     v-bottom-navigation(
       fixed
       grow
@@ -28,19 +54,8 @@
 <script>
 export default {
   name: 'App',
-  created() {
-    switch (this.$route.name) {
-      case 'サインイン':
-        break
-      case '設定':
-        break
-      case '検索':
-        break
-      case 'ランキング':
-        break
-      case 'プロフィール':
-        break
-    }
+  data() {
+    return { tabs: { rankingTab: {}, timerTab: {} } }
   }
 }
 </script>

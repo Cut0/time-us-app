@@ -5,45 +5,34 @@ v-row(
   v-responsive(
     max-width="498")
     v-container.pa-0
-      v-tabs(
-        grow
-        color="light-green"
-        background-color="grey lighten-5")
-        v-tab(key="0") 本日
-        v-tab(key="1") 週間
-        v-tab(key="2") 月間
-        v-tab(key="3") 累計
+      v-tabs-items(v-model="tabs.rankingTab")
         v-tab-item(key="0") 
-          v-list.cover(rounded)
+          v-list(rounded)
             v-list-item-group(
-              v-model="item" 
               color="light-green")
               user-card(
                 v-for="el in sample_userData"
                 :name="el.name"
                 :rank="el.rank")
         v-tab-item(key="1")
-          v-list.cover(rounded)
+          v-list(rounded)
             v-list-item-group(
-              v-model="item" 
               color="light-green")
               user-card(
                 v-for="el in sample_userData"
                 :name="el.name"
                 :rank="el.rank")
         v-tab-item(key="2") 
-          v-list.cover(rounded)
+          v-list(rounded)
             v-list-item-group(
-              v-model="item" 
               color="light-green")
               user-card(
                 v-for="el in sample_userData"
                 :name="el.name"
                 :rank="el.rank")
-        v-tab-item(key="2") 
-          v-list.cover(rounded)
+        v-tab-item(key="3") 
+          v-list(rounded)
             v-list-item-group(
-              v-model="item" 
               color="light-green")
               user-card(
                 v-for="el in sample_userData"
@@ -54,6 +43,9 @@ v-row(
 import UserCard from '@/components/UserCard.vue'
 export default {
   components: { UserCard },
+  props: {
+    tabs: {}
+  },
   data() {
     return {
       sample_userData: [
@@ -82,8 +74,3 @@ export default {
   }
 }
 </script>
-<style scoped lang="sass">
-.cover
-  height: calc(100vh - 164px)
-  overflow: scroll
-</style>

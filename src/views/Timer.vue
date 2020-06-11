@@ -6,12 +6,7 @@ v-row(
     max-width="498"
     width="375")
     v-container.pa-0
-      v-tabs(
-        grow
-        color="light-green"
-        background-color="grey lighten-5")
-        v-tab(key="0") 本日
-        v-tab(key="1") ログ
+      v-tabs-items(v-model="tabs.timerTab")
         v-tab-item(key="0")
           v-card.pb-5
             timer-detail
@@ -42,6 +37,9 @@ import LogCard from '@/components/LogCard.vue'
 import ConfirmDialog from '@/components/ConfirmDialog.vue'
 export default {
   components: { TimerDetail, LogCard, ConfirmDialog },
+  props: {
+    tabs: {}
+  },
   data() {
     return {
       sample_userData: [
@@ -68,7 +66,4 @@ export default {
 <style scoped lang="sass">
 .v-list-item__icon
   align-self: center
-.cover
-  height: calc(100vh - 164px)
-  overflow: scroll
 </style>

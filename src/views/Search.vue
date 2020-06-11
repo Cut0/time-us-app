@@ -3,17 +3,10 @@ v-row(
   no-gutters
   justify="center")  
   v-responsive(
-    max-width="498"
-    width="375")
-    v-container
-      v-text-field(
-        label="ユーザー名を入力してください"
-        prepend-inner-icon="mdi-magnify"
-        color="light-green"
-        hide-details)
-      v-list.mt-2.cover(rounded)
+    max-width="498")
+    v-container.pa-0
+      v-list(rounded)
         v-list-item-group(
-          v-model="item" 
           color="light-green")
           user-card(
             v-for="el in sample_userData"
