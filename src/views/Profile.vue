@@ -10,13 +10,8 @@ v-row(
         no-gutters
         align="center"
         justify="start")
-        v-avatar(
-          color="grey"
-          size="80")
-          v-img(
-            eager
-            width=200
-            height=200
+        span.img-wrapper
+          img(
             src="https://i.picsum.photos/id/797/900/400.jpg")
         v-row.ml-8.mt-6(
           no-gutters
@@ -68,7 +63,6 @@ v-row(
           timer-detail
         v-tab-item(key="1") 
           timer-transition
-      
 </template>
 <script>
 import TimerDetail from '@/components/TimerDetail.vue'
@@ -81,3 +75,20 @@ export default {
   })
 }
 </script>
+<style scoped lang="sass">
+.img-wrapper
+  width: 100px
+  height: 100px
+  position: relative
+.img-wrapper > img
+  position: absolute
+  top: 50%
+  left: 50%
+  width: 100px
+  height: 100px
+  object-fit: cover
+  transform: translate(-50%, -50%)
+  -webkit-transform: translate(-50%, -50%)
+  -ms-transform: translate(-50%, -50%)
+  border-radius: 50%
+</style>

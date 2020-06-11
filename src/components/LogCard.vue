@@ -1,10 +1,7 @@
 <template lang="pug">
     v-list-item(max-width="498")
-      v-list-item-avatar
-        v-img(
-          eager
-          width=100
-          height=100
+      span.img-wrapper.mr-4
+        img(
           src="https://i.picsum.photos/id/797/900/400.jpg")
       v-list-item-content
         v-list-item-title {{name}}
@@ -40,4 +37,20 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="sass">
+.img-wrapper
+  width: 40px
+  height: 40px
+  position: relative
+.img-wrapper > img
+  position: absolute
+  top: 50%
+  left: 50%
+  width: 40px
+  height: 40px
+  object-fit: cover
+  transform: translate(-50%, -50%)
+  -webkit-transform: translate(-50%, -50%)
+  -ms-transform: translate(-50%, -50%)
+  border-radius: 50%
+</style>
