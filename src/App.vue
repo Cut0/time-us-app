@@ -5,13 +5,23 @@
       fixed
       dark
       color="light-green")
-      v-app-bar-nav-icon
-      v-toolbar-title {{this.$route.name}}
-      v-spacer
-
+      template(v-if="$route.name!=='検索'")
+        v-app-bar-nav-icon
+        v-toolbar-title {{this.$route.name}}
+        v-spacer
+      v-text-field.mx-sm-12.px-sm-12(
+        placeholder="ユーザー名で検索"
+        prepend-inner-icon="mdi-magnify"
+        hide-details
+        outlined
+        rounded
+        dense
+        clearable
+        color="white"
+        v-if="$route.name==='検索'")
       template(
         v-slot:extension
-        v-if="($route.name==='ランキング'||$route.name==='タイマー'||$route.name==='検索')")
+        v-if="($route.name==='ランキング'||$route.name==='タイマー')")
         v-tabs(
           v-model="tabs.timerTab"
           fixed-tabs
@@ -28,12 +38,6 @@
           v-tab(key="1") 週間
           v-tab(key="2") 月間
           v-tab(key="3") 累計
-        v-text-field(
-          label="ユーザー名を入力してください"
-          prepend-inner-icon="mdi-magnify"
-          color="white"
-          hide-details
-          v-if="$route.name==='検索'")
     v-content
       router-view(:tabs="tabs")
     v-bottom-navigation(
