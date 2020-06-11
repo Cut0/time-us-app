@@ -8,7 +8,7 @@
       v-app-bar-nav-icon
       v-toolbar-title {{this.$route.name}}
       v-spacer
-    v-content.pb-12
+    v-content.ppers
       router-view
     v-bottom-navigation(
       fixed
@@ -44,3 +44,7 @@ export default {
   }
 }
 </script>
+<style scoped lang="sass">
+.v-content
+  padding-bottom: 56px !important
+</style>

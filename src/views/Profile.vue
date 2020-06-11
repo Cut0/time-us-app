@@ -12,7 +12,7 @@ v-row(
         justify="start")
         v-avatar(
           color="grey"
-          size="84")
+          size="80")
           v-img(
             eager
             width=200
@@ -81,4 +81,3 @@ export default {
   })
 }
 </script>
-<style lang="sass" scoped></style>
