@@ -10,12 +10,13 @@ v-row(
         v-tab-item(key="0")
           v-card.pb-5
             timer-detail
-            v-btn.mt-4(
-              block
-              rounded
-              color="light-green"
-              elevation="3"
-              large) 休憩中
+            v-container
+              v-btn.mt-4(
+                block
+                rounded
+                color="light-green"
+                elevation="3"
+                large) 休憩中
         v-tab-item(key="1")
           v-list.cover(rounded)
             v-list-item-group( 

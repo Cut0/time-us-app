@@ -1,6 +1,6 @@
 <template lang="pug">
   v-app(style="background: #FAFAFA;")
-    v-app-bar(
+    v-app-bar.tes(
       app
       fixed
       dark
@@ -57,13 +57,16 @@
 
 <script>
 export default {
-  name: 'App',
   data() {
     return { tabs: { rankingTab: {}, timerTab: {} } }
   }
 }
 </script>
-<style scoped lang="sass">
+<style lang="sass">
 .v-content
   padding-bottom: 56px !important
+.v-input
+  max-width: 600px !important
+.v-toolbar__content
+  justify-content: center
 </style>

@@ -5,8 +5,7 @@
       v-list-item-content
         v-list-item-title {{name}}
       span.img-wrapper
-        img(
-          src="https://i.picsum.photos/id/797/900/400.jpg")
+        img(src="https://i.picsum.photos/id/797/900/400.jpg")
 </template>
 
 <script>

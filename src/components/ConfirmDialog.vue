@@ -1,5 +1,7 @@
 <template lang="pug">
-  v-dialog(v-model="isOpened" max-width="290")
+  v-dialog(
+    v-model="isOpened"
+    max-width="290")
     v-card
       v-card-title.headline {{title}}
       v-card-text {{text}}
@@ -41,5 +43,3 @@ export default {
   }
 }
 </script>
-
-<style scoped></style>

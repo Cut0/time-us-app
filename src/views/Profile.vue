@@ -5,7 +5,7 @@ v-row(
   v-responsive(
     max-width="498" 
     width="375")
-    v-container.px-6.py-1
+    v-container.px-3.py-1
       v-row.my-1(
         no-gutters
         align="center"
