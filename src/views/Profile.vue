@@ -59,19 +59,36 @@ v-row(
         v-tab(key="0") 詳細
         v-tab(key="1") 推移
         v-tab-item(key="0")
-          timer-detail
+          timer-detail(
+            :params="sampleA"
+            today-value="00:00:10")
         v-tab-item(key="1") 
-          timer-transition
+          timer-transition(:params="sampleB")
 </template>
 <script>
-import TimerDetail from '@/components/TimerDetail.vue'
-import TimerTransition from '@/components/TimerTransition.vue'
+import TimerDetail from '@/components/graphs/TimerDetail.vue'
+import TimerTransition from '@/components/graphs/TimerTransition.vue'
 export default {
   components: { TimerDetail, TimerTransition },
-  data: () => ({
-    date: new Date().toISOString().substr(0, 10),
-    calendar: false
-  })
+  data() {
+    return {
+      date: new Date().toISOString().substr(0, 10),
+      calendar: false,
+      sampleA: [
+        { label: '勉強', color: '#FF9800', value: 10 },
+        { label: '休憩', color: '#8BC34A', value: 10 },
+        { label: 'その他', color: '#BDBDBD', value: 10 }
+      ],
+      sampleB: [
+        { label: '勉強', color: '#FF9800', date: 0, value: 10 },
+        { label: 'その他', color: '#8BC34A', date: 0, value: 10 },
+        { label: '勉強', color: '#FF9800', date: 1, value: 20 },
+        { label: 'その他', color: '#8BC34A', date: 1, value: 15 },
+        { label: '勉強', color: '#FF9800', date: 2, value: 40 },
+        { label: 'その他', color: '#8BC34A', date: 3, value: 5 }
+      ]
+    }
+  }
 }
 </script>
 <style scoped lang="sass">

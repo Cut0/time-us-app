@@ -12,7 +12,7 @@ v-row(
             :rank="el.rank")
 </template>
 <script>
-import UserCard from '@/components/UserCard.vue'
+import UserCard from '@/components/cards/UserCard.vue'
 export default {
   components: { UserCard },
   data() {

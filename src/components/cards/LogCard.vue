@@ -1,29 +1,33 @@
 <template lang="pug">
     v-list-item(max-width="498")
-      v-list-item-icon
-        v-list-item-title {{rank}}
+      span.img-wrapper.mr-4
+        img(src="https://i.picsum.photos/id/797/900/400.jpg" alt="" loading="lazy")
       v-list-item-content
         v-list-item-title {{name}}
-      span.img-wrapper
-        img(src="https://i.picsum.photos/id/797/900/400.jpg" alt="" loading="lazy")
+        v-list-item-subtitle {{text}}
+      v-list-item-action
+        v-list-item-action-text {{time}}
+        v-icon(@click.stop="iconClicked") mdi-delete
 </template>
 
 <script>
 export default {
   components: {},
   props: {
-    rank: {
-      type: Number,
-      required: true
-    },
     name: {
-      typw: String
+      type: String
+    },
+    text: {
+      type: String
+    },
+    time: {
+      type: String
     }
   },
-  computed: {},
-  methods: {},
-  data() {
-    return {}
+  methods: {
+    iconClicked() {
+      this.$emit('iconClicked')
+    }
   }
 }
 </script>

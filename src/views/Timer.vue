@@ -9,7 +9,9 @@ v-row(
       v-tabs-items(v-model="tabs.timerTab")
         v-tab-item(key="0")
           v-card.pb-5
-            timer-detail
+            timer-detail(
+            :params="sampleA"
+            today-value="00:00:10")
             v-container
               v-btn.mt-4(
                 block
@@ -32,9 +34,9 @@ v-row(
             text="削除したデータは今までの記録からも消されます")
 </template>
 <script>
-import TimerDetail from '@/components/TimerDetail.vue'
-import LogCard from '@/components/LogCard.vue'
-import ConfirmDialog from '@/components/ConfirmDialog.vue'
+import TimerDetail from '@/components/graphs/TimerDetail.vue'
+import LogCard from '@/components/cards/LogCard.vue'
+import ConfirmDialog from '@/components/dialogs/ConfirmDialog.vue'
 export default {
   components: { TimerDetail, LogCard, ConfirmDialog },
   props: {
@@ -42,6 +44,11 @@ export default {
   },
   data() {
     return {
+      sampleA: [
+        { label: '勉強', color: '#FF9800', value: 10 },
+        { label: '休憩', color: '#8BC34A', value: 10 },
+        { label: 'その他', color: '#BDBDBD', value: 10 }
+      ],
       sample_userData: [
         { name: 'CutRay', text: '勉強終了', time: '00:00' },
         { name: 'CutRay', text: '勉強開始', time: '00:00' },
