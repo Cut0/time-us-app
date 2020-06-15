@@ -1,0 +1,5 @@
+shims-tsx.d.ts
+shims-vue.d.ts
+/dist/
+/node_modules/
+/public/
