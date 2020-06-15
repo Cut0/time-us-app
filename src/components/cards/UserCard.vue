@@ -5,12 +5,11 @@
       v-list-item-content
         v-list-item-title {{name}}
       span.img-wrapper
-        img(src="https://i.picsum.photos/id/797/900/400.jpg" alt="" loading="lazy")
+        img(src="https://picsum.photos/200/300" alt="" loading="lazy")
 </template>
 
 <script>
 export default {
-  components: {},
   props: {
     rank: {
       type: Number,
@@ -44,4 +43,5 @@ export default {
   -webkit-transform: translate(-50%, -50%)
   -ms-transform: translate(-50%, -50%)
   border-radius: 50%
+  background-color: grey
 </style>

@@ -11,7 +11,7 @@ v-row(
         align="center"
         justify="start")
         span.img-wrapper
-          img(src="https://i.picsum.photos/id/797/900/400.jpg" alt="" loading="lazy")
+          img(src="https://picsum.photos/200/300" alt="" loading="lazy")
         v-row.ml-8.mt-6(
           no-gutters
           align="center"
@@ -31,7 +31,7 @@ v-row(
         span 工学部情報工学科ああああああああああああああ大学行きたくねえええええええええええええ
       .body-2.my-2
         v-icon(
-          size="medium") mdi-link-variant
+          size="18") $linkVariant
         a.ml-2(href="https://portfolio-ray.web.app/") https://portfolio-ray.web.app/
       v-menu.my-2(v-model="calendar" :close-on-content-click="false" :nudge-right="40" transition="scale-transition" min-width="290px")
         template(v-slot:activator="{ on, attrs }")
@@ -44,7 +44,7 @@ v-row(
             color="light-green")
             v-icon(
               slot="prepend"
-              size="medium") mdi-calendar
+              size="18") $calendar
         v-date-picker(
           v-model="date" 
           @input="calendar= false"
@@ -53,7 +53,6 @@ v-row(
       v-tabs(
         grow
         center
-        show-arrows
         color="light-green"
         background-color="grey lighten-5")
         v-tab(key="0") 詳細
@@ -107,4 +106,5 @@ export default {
   -webkit-transform: translate(-50%, -50%)
   -ms-transform: translate(-50%, -50%)
   border-radius: 50%
+  background-color: grey
 </style>

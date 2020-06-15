@@ -11,7 +11,7 @@
         v-spacer
       v-text-field.mx-sm-12.px-sm-12(
         placeholder="ユーザー名で検索"
-        prepend-inner-icon="mdi-magnify"
+        prepend-inner-icon="$magnify"
         hide-details
         outlined
         rounded
@@ -38,32 +38,34 @@
           v-tab(key="1") 週間
           v-tab(key="2") 月間
           v-tab(key="3") 累計
-    v-content
+    v-main
       router-view(:tabs="tabs")
     v-bottom-navigation(
       fixed
       grow
       color="light-green"
       background-color="grey lighten-5")
-      v-btn(to="/timer")
-        v-icon mdi-clock
+      v-btn(to="/")
+        v-icon $account
       v-btn(to="/search")
-        v-icon mdi-magnify
+        v-icon $magnify
       v-btn(to="/ranking")
-        v-icon mdi-crown
+        v-icon $crown
       v-btn(to="/1")
-        v-icon mdi-account
+        v-icon $account
 </template>
 
 <script>
 export default {
   data() {
-    return { tabs: { rankingTab: {}, timerTab: {} } }
+    return {
+      tabs: { rankingTab: {}, timerTab: {} }
+    }
   }
 }
 </script>
 <style lang="sass">
-.v-content
+.v-main
   padding-bottom: 56px !important
 .v-input
   max-width: 600px !important

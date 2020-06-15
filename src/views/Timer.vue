@@ -12,8 +12,8 @@ v-row(
             timer-detail(
             :params="sampleA"
             today-value="00:00:10")
-            v-container
-              v-btn.mt-4(
+            v-container.mt-6
+              v-btn(
                 block
                 rounded
                 color="light-green"
@@ -52,14 +52,7 @@ export default {
       sample_userData: [
         { name: 'CutRay', text: '勉強終了', time: '00:00' },
         { name: 'CutRay', text: '勉強開始', time: '00:00' },
-        { name: 'CutRay', text: '勉強終了', time: '00:00' },
-        { name: 'CutRay', text: '勉強開始', time: '00:00' },
-        { name: 'CutRay', text: '勉強終了', time: '00:00' },
-        { name: 'CutRay', text: '勉強開始', time: '00:00' },
-        { name: 'CutRay', text: '勉強終了', time: '00:00' },
-        { name: 'CutRay', text: '勉強開始', time: '00:00' },
-        { name: 'CutRay', text: '勉強終了', time: '00:00' },
-        { name: 'CutRay', text: '勉強開始', time: '00:00' }
+        { name: 'CutRay', text: '勉強終了', time: '00:00' }
       ]
     }
   },
@@ -73,4 +66,6 @@ export default {
 <style scoped lang="sass">
 .v-list-item__icon
   align-self: center
+.v-card
+  min-height: calc(100vh - 160px)
 </style>

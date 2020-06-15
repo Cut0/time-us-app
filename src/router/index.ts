@@ -10,13 +10,13 @@ import Profile from '@/views/Profile.vue'
 Vue.use(VueRouter)
 
 const routes = [
+  { path: '/', name: 'タイマー', component: Timer },
   {
-    path: '/',
+    path: '/sign_in',
     name: 'サインイン',
     component: SignIn
   },
   { path: '/setting', name: '設定', component: Setting },
-  { path: '/timer', name: 'タイマー', component: Timer },
   { path: '/search', name: '検索', component: Search },
   { path: '/ranking', name: 'ランキング', component: Ranking },
   { path: '/:id', name: 'プロフィール', component: Profile }
