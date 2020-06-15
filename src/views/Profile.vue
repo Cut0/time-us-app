@@ -11,8 +11,7 @@ v-row(
         align="center"
         justify="start")
         span.img-wrapper
-          img(
-            src="https://i.picsum.photos/id/797/900/400.jpg")
+          img(src="https://i.picsum.photos/id/797/900/400.jpg" alt="" loading="lazy")
         v-row.ml-8.mt-6(
           no-gutters
           align="center"

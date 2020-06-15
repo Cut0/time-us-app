@@ -1,6 +1,6 @@
 <template lang="pug">
   v-app(style="background: #FAFAFA;")
-    v-app-bar.tes(
+    v-app-bar(
       app
       fixed
       dark

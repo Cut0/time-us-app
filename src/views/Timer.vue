@@ -19,8 +19,7 @@ v-row(
                 large) 休憩中
         v-tab-item(key="1")
           v-list.cover(rounded)
-            v-list-item-group( 
-              color="light-green")
+            v-list-item-group(color="light-green")
               log-card(
                 v-for="el in sample_userData"
                 :name="el.name"
