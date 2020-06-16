@@ -41,8 +41,3 @@ export default {
   }
 }
 </script>
-<style scoped lang="sass">
-.cover
-  height: calc(100vh - 180px)
-  overflow: scroll
-</style>

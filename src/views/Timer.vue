@@ -5,7 +5,7 @@ v-row(
   v-responsive(
     max-width="498"
     width="375")
-    v-container.pa-0
+    v-container.tes.pa-0
       v-tabs-items(v-model="tabs.timerTab")
         v-tab-item(key="0")
           v-card.pb-5
@@ -20,7 +20,7 @@ v-row(
                 elevation="3"
                 large) 休憩中
         v-tab-item(key="1")
-          v-list.cover(rounded)
+          v-list(rounded)
             v-list-item-group(color="light-green")
               log-card(
                 v-for="el in sample_userData"

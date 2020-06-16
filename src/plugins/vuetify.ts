@@ -9,7 +9,20 @@ import {
   mdiCalendar,
   mdiDelete,
   mdiEye,
-  mdiEyeOff
+  mdiEyeOff,
+  mdiCog,
+  mdiClockOutline,
+  mdiCrownOutline,
+  mdiAccountOutline,
+  mdiLogin,
+  mdiClipboardTextOutline,
+  mdiFaceProfile,
+  mdiEmailOutline,
+  mdiLockOutline,
+  mdiLogout,
+  mdiExitRun,
+  mdiArrowLeft,
+  mdiImage
 } from '@mdi/js'
 Vue.use(Vuetify)
 
@@ -18,14 +31,27 @@ export default new Vuetify({
     iconfont: 'mdiSvg',
     values: {
       clock: mdiClock,
+      clockOutline: mdiClockOutline,
       magnify: mdiMagnify,
       crown: mdiCrown,
+      crownOutline: mdiCrownOutline,
       account: mdiAccount,
+      accountOutline: mdiAccountOutline,
       linkVariant: mdiLinkVariant,
       calendar: mdiCalendar,
       delete: mdiDelete,
       eye: mdiEye,
-      eyeoff: mdiEyeOff
+      eyeoff: mdiEyeOff,
+      cog: mdiCog,
+      login: mdiLogin,
+      bio: mdiClipboardTextOutline,
+      faceProfile: mdiFaceProfile,
+      emailOutline: mdiEmailOutline,
+      lockOutline: mdiLockOutline,
+      logout: mdiLogout,
+      exit: mdiExitRun,
+      allowLeft: mdiArrowLeft,
+      image: mdiImage
     }
   }
 })

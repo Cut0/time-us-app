@@ -55,7 +55,7 @@ v-row(
         outlined
         small
         color="light-green"
-        elevation="3") プロフィール設定
+        to="/setting") プロフィール編集
     v-container.pa-0.py-sm-2
       v-tabs(
         grow
