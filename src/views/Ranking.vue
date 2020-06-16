@@ -6,43 +6,18 @@ v-row(
     max-width="498")
     v-container.pa-0
       v-tabs-items(v-model="tabs.rankingTab")
-        v-tab-item(key="0") 
-          v-list(rounded)
-            v-list-item-group(
-              color="light-green")
-              user-card(
-                v-for="el in sample_userData"
-                :name="el.name"
-                :rank="el.rank")
-        v-tab-item(key="1")
-          v-list(rounded)
-            v-list-item-group(
-              color="light-green")
-              user-card(
-                v-for="el in sample_userData"
-                :name="el.name"
-                :rank="el.rank")
-        v-tab-item(key="2") 
-          v-list(rounded)
-            v-list-item-group(
-              color="light-green")
-              user-card(
-                v-for="el in sample_userData"
-                :name="el.name"
-                :rank="el.rank")
-        v-tab-item(key="3") 
-          v-list(rounded)
-            v-list-item-group(
-              color="light-green")
-              user-card(
-                v-for="el in sample_userData"
-                :name="el.name"
-                :rank="el.rank")
+        v-tab-item(
+          v-for="el in [...Array(4)].map((v, i)=> i)"
+          :key="el") 
+          user-list(
+            :showRank="true"
+            :userData="sample_userData"
+            color="light-green")
 </template>
 <script>
-import UserCard from '@/components/cards/UserCard.vue'
+import UserList from '@/templates/UserList.vue'
 export default {
-  components: { UserCard },
+  components: { UserList },
   props: {
     tabs: {}
   },

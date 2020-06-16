@@ -4,17 +4,15 @@ v-row(
   justify="center")  
   v-responsive(max-width="498")
     v-container.pa-0
-      v-list(rounded)
-        v-list-item-group(color="light-green")
-          user-card(
-            v-for="el in sample_userData"
-            :name="el.name"
-            :rank="el.rank")
+      user-list(
+        :showRank="true"
+        :userData="sample_userData"
+        color="light-green")
 </template>
 <script>
-import UserCard from '@/components/cards/UserCard.vue'
+import UserList from '@/templates/UserList.vue'
 export default {
-  components: { UserCard },
+  components: { UserList },
   data() {
     return {
       sample_userData: [

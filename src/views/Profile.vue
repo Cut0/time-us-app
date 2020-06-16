@@ -48,7 +48,14 @@ v-row(
         v-date-picker(
           v-model="date" 
           @input="calendar= false"
-          no-title scrollable)
+          no-title 
+          scrollable)
+      v-btn.mt-6.mb-2(
+        block
+        outlined
+        small
+        color="light-green"
+        elevation="3") プロフィール設定
     v-container.pa-0.py-sm-2
       v-tabs(
         grow

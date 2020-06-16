@@ -72,7 +72,6 @@ export default {
           const fontStyle = 'normal'
           ctx.fillStyle = '#000'
           ctx.font = Chart.helpers.fontString(fontSize, fontStyle)
-
           ctx.textAlign = 'center'
           ctx.textBaseline = 'middle'
           ctx.fillText(this.todayValue, chart.width / 2, chart.height / 2)

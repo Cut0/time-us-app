@@ -1,6 +1,6 @@
 <template lang="pug">
     v-list-item(max-width="498" @click="clicked")
-      v-list-item-icon
+      v-list-item-icon(v-if="showRank")
         v-list-item-title {{rank}}
       v-list-item-content
         v-list-item-title {{name}}
@@ -11,9 +11,12 @@
 <script>
 export default {
   props: {
+    showRank: {
+      type: Boolean,
+      default: false
+    },
     rank: {
-      type: Number,
-      required: true
+      type: Number
     },
     name: {
       type: String
