@@ -4,12 +4,15 @@
         img(src="https://picsum.photos/200/300" alt="" loading="lazy")
       v-list-item-content
         v-list-item-title {{name}}
-        v-list-item-subtitle {{text}}
+        v-list-item-subtitle {{text}}({{startTime}}〜{{endTime}})
       v-list-item-action
-        v-list-item-action-text {{time}}
-        v-icon(
-          v-if="showDelete"
-          @click.stop="iconClicked") $delete
+        v-row.mr-2
+          v-icon.mr-4(
+            v-if="showDelete"
+            @click.stop="editClicked") $pencil
+          v-icon(
+            v-if="showDelete"
+            @click.stop="deleteClicked") $delete
 </template>
 
 <script>
@@ -21,7 +24,10 @@ export default {
     text: {
       type: String
     },
-    time: {
+    startTime: {
+      type: String
+    },
+    endTime: {
       type: String
     },
     showDelete: {
@@ -29,8 +35,14 @@ export default {
     }
   },
   methods: {
-    iconClicked() {
-      this.$emit('iconClicked')
+    deleteClicked() {
+      this.$emit('deleteClicked')
+    },
+    editClicked() {
+      this.$emit('editClicked', {
+        startTime: this.startTime,
+        endTime: this.endTime
+      })
     }
   }
 }

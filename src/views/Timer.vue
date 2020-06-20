@@ -42,18 +42,54 @@ export default {
         { label: 'その他', color: '#BDBDBD', value: 10 }
       ],
       sample_userData: [
-        { name: 'CutRay', text: '勉強終了', time: '00:00' },
-        { name: 'CutRay', text: '勉強開始', time: '00:00' },
-        { name: 'CutRay', text: '勉強終了', time: '00:00' },
-        { name: 'CutRay', text: '勉強終了', time: '00:00' },
-        { name: 'CutRay', text: '勉強開始', time: '00:00' },
-        { name: 'CutRay', text: '勉強終了', time: '00:00' },
-        { name: 'CutRay', text: '勉強終了', time: '00:00' },
-        { name: 'CutRay', text: '勉強開始', time: '00:00' },
-        { name: 'CutRay', text: '勉強終了', time: '00:00' },
-        { name: 'CutRay', text: '勉強終了', time: '00:00' },
-        { name: 'CutRay', text: '勉強開始', time: '00:00' },
-        { name: 'CutRay', text: '勉強終了', time: '00:00' }
+        {
+          name: 'CutRay',
+          text: '勉強',
+          startTime: '01:00',
+          endTime: '23:59'
+        },
+        {
+          name: 'CutRay',
+          text: '勉強',
+          startTime: '02:00',
+          endTime: '23:59'
+        },
+        {
+          name: 'CutRay',
+          text: '勉強',
+          startTime: '03:00',
+          endTime: '24:59'
+        },
+        {
+          name: 'CutRay',
+          text: '勉強',
+          startTime: '00:00',
+          endTime: '23:59'
+        },
+        {
+          name: 'CutRay',
+          text: '勉強',
+          startTime: '00:00',
+          endTime: '23:59'
+        },
+        {
+          name: 'CutRay',
+          text: '勉強',
+          startTime: '00:00',
+          endTime: '23:59'
+        },
+        {
+          name: 'CutRay',
+          text: '勉強',
+          startTime: '00:00',
+          endTime: '23:59'
+        },
+        {
+          name: 'CutRay',
+          text: '勉強',
+          startTime: '00:00',
+          endTime: '23:59'
+        }
       ]
     }
   }

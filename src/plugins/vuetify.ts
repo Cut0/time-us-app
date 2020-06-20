@@ -22,7 +22,8 @@ import {
   mdiLogout,
   mdiExitRun,
   mdiArrowLeft,
-  mdiImage
+  mdiImage,
+  mdiPencil
 } from '@mdi/js'
 Vue.use(Vuetify)
 
@@ -51,7 +52,8 @@ export default new Vuetify({
       logout: mdiLogout,
       exit: mdiExitRun,
       allowLeft: mdiArrowLeft,
-      image: mdiImage
+      image: mdiImage,
+      pencil: mdiPencil
     }
   }
 })

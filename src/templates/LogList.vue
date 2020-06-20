@@ -8,19 +8,25 @@ div
         :showDelete="showDelete"
         :name="el.name"
         :text="el.text"
-        :time="el.time"
-        @iconClicked="openConfirm")
+        :startTime="el.startTime"
+        :endTime="el.endTime"
+        @deleteClicked="openDeleteConfirm"
+        @editClicked="openEditDialog")
   confirm-dialog(
-    ref="confirm"
+    ref="delete"
     title="削除しますか？"
     text="削除したデータは今までの記録からも消されます")
+  time-dialog(
+    ref="edit"
+    title="時間を編集")
 </template>
 
 <script>
 import LogCard from '@/components/cards/LogCard.vue'
 import ConfirmDialog from '@/components/dialogs/ConfirmDialog.vue'
+import TimeDialog from '@/components/dialogs/TimeDialog.vue'
 export default {
-  components: { LogCard, ConfirmDialog },
+  components: { LogCard, ConfirmDialog, TimeDialog },
   props: {
     logData: {
       type: Array
@@ -33,8 +39,11 @@ export default {
     }
   },
   methods: {
-    openConfirm() {
-      this.$refs.confirm.open()
+    openDeleteConfirm() {
+      this.$refs.delete.open()
+    },
+    openEditDialog({ startTime, endTime }) {
+      this.$refs.edit.open({ startTime, endTime })
     }
   }
 }
