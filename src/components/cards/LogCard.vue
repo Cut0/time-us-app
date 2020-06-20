@@ -1,5 +1,5 @@
 <template lang="pug">
-    v-list-item(max-width="498")
+    v-list-item(max-width="598")
       span.img-wrapper.mr-4
         img(src="https://picsum.photos/200/300" alt="" loading="lazy")
       v-list-item-content

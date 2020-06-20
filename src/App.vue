@@ -1,5 +1,41 @@
 <template lang="pug">
-  v-app(style="background: #FAFAFA;")
+  v-app
+    v-navigation-drawer(
+      v-if="!$vuetify.breakpoint.xs"
+      fixed
+      permanent 
+      app
+      dark
+      color="light-green")
+      v-list.py-0
+        v-list-item(@click="pageMove('/1')")
+          v-list-item-avatar
+            img(src="https://picsum.photos/200/300")
+          v-list-item-content
+            v-list-item-title CutRay
+            v-list-item-subtitle Subtext
+        v-divider
+        v-list-item-group
+          v-list-item(@click="pageMove('/')")
+            v-list-item-icon
+              v-icon  $clockOutline
+            v-list-item-content
+              v-list-item-title タイマー
+          v-list-item(@click="pageMove('/search')")
+            v-list-item-icon
+              v-icon  $magnify
+            v-list-item-content
+              v-list-item-title ユーザー検索
+          v-list-item(@click="pageMove('/ranking')")
+            v-list-item-icon
+              v-icon  $crown
+            v-list-item-content
+              v-list-item-title ランキング
+          v-list-item(@click="pageMove('/config')")
+            v-list-item-icon
+              v-icon  $cog
+            v-list-item-content
+              v-list-item-title アカウント設定
     v-app-bar(
       app
       fixed
@@ -56,10 +92,13 @@
     v-main
       router-view(:tabs="tabs")
     v-bottom-navigation(
+      v-if="$vuetify.breakpoint.xs"
+      app
       fixed
       grow
-      color="light-green"
-      background-color="grey lighten-5")
+      dark
+      background-color="light-green"
+      color="white")
       v-btn(to="/")
         v-icon $clock
       v-btn(to="/search")
@@ -75,6 +114,11 @@ export default {
   data() {
     return {
       tabs: { rankingTab: {}, timerTab: {} }
+    }
+  },
+  methods: {
+    pageMove(path) {
+      if (path !== this.$route.path) this.$router.push(path)
     }
   }
 }

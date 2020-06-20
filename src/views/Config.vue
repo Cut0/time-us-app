@@ -3,35 +3,36 @@ v-row(
     no-gutters
     justify="center")  
   v-responsive(
-    max-width="498"
+    max-width="598"
     width="375")
-    v-container.tes.pa-0
+    v-container.pa-0
       v-list
         v-list-item-group(color="light-green")
           v-list-item(
-            max-width="498"
+            max-width="598"
             @click="openEmailConfirm")
             v-list-item-icon
               v-icon $emailOutline
             v-list-item-content
               v-list-item-title メールアドレス変更
           v-list-item(
-            max-width="498"
+            max-width="598"
             @click="openPasswordConfirm")
             v-list-item-icon
               v-icon $lockOutline
             v-list-item-content
               v-list-item-title パスワード変更
           v-list-item(
-            max-width="498"
+            max-width="598"
             @click="openLogoutConfirm")
             v-list-item-icon
               v-icon $logout
             v-list-item-content
               v-list-item-title ログアウト
+          v-divider
           v-list-item(
-            max-width="498"
-            @click="openWithdrawalConfirm").mt-8
+            max-width="598"
+            @click="openWithdrawalConfirm")
             v-list-item-icon
               v-icon $exit
             v-list-item-content

@@ -3,9 +3,9 @@ v-row(
     no-gutters
     justify="center")  
   v-responsive(
-    max-width="498"
+    max-width="598"
     width="375")
-    v-container.tes.pa-0
+    v-card.mx-sm-3.mt-sm-5.mb-sm-1
       v-tabs-items(v-model="tabs.timerTab")
         v-tab-item(key="0")
           v-card.pb-5
@@ -50,6 +50,15 @@ export default {
         { label: 'その他', color: '#BDBDBD', value: 10 }
       ],
       sample_userData: [
+        { name: 'CutRay', text: '勉強終了', time: '00:00' },
+        { name: 'CutRay', text: '勉強開始', time: '00:00' },
+        { name: 'CutRay', text: '勉強終了', time: '00:00' },
+        { name: 'CutRay', text: '勉強終了', time: '00:00' },
+        { name: 'CutRay', text: '勉強開始', time: '00:00' },
+        { name: 'CutRay', text: '勉強終了', time: '00:00' },
+        { name: 'CutRay', text: '勉強終了', time: '00:00' },
+        { name: 'CutRay', text: '勉強開始', time: '00:00' },
+        { name: 'CutRay', text: '勉強終了', time: '00:00' },
         { name: 'CutRay', text: '勉強終了', time: '00:00' },
         { name: 'CutRay', text: '勉強開始', time: '00:00' },
         { name: 'CutRay', text: '勉強終了', time: '00:00' }

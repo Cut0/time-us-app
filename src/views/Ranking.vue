@@ -3,8 +3,8 @@ v-row(
     no-gutters
     justify="center")  
   v-responsive(
-    max-width="498")
-    v-container.pa-0
+    max-width="598")
+    v-card.mx-sm-3.mt-sm-5.mb-sm-1
       v-tabs-items(v-model="tabs.rankingTab")
         v-tab-item(
           v-for="el in [...Array(4)].map((v, i)=> i)"
