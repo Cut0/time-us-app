@@ -4,7 +4,7 @@
         img(src="https://picsum.photos/200/300" alt="" loading="lazy")
       v-list-item-content
         v-list-item-title {{name}}
-        v-list-item-subtitle {{text}}({{startTime}}〜{{endTime}})
+        v-list-item-subtitle {{text}}({{date}}{{startTime}}〜{{endTime}})
       v-list-item-action
         v-row.mr-2
           v-icon.mr-4(
@@ -22,6 +22,9 @@ export default {
       type: String
     },
     text: {
+      type: String
+    },
+    date: {
       type: String
     },
     startTime: {

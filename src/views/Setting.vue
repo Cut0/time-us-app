@@ -45,7 +45,7 @@ v-row(
             color="light-green"
             elevation="3"
             large
-            to="/1") プロフィール設定       
+            to="/1") プロフィール決定      
 </template>
 <script>
 export default {

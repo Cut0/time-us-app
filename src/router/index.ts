@@ -17,7 +17,7 @@ const routes = [
     name: 'サインイン',
     component: SignIn
   },
-  { path: '/setting', name: 'プロフィール設定', component: Setting },
+  { path: '/setting', name: 'プロフィール編集', component: Setting },
   { path: '/config', name: 'アカウント設定', component: Config },
   { path: '/search', name: '検索', component: Search },
   { path: '/ranking', name: 'ランキング', component: Ranking },

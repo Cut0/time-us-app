@@ -47,7 +47,7 @@
           v-icon(v-if="$route.name==='ランキング'") $crownOutline
           v-icon(v-if="$route.name==='プロフィール'") $accountOutline
           v-icon(v-if="$route.name==='サインイン'") $login
-          v-icon(v-if="$route.name==='プロフィール設定'") $faceProfile
+          v-icon(v-if="$route.name==='プロフィール編集'") $faceProfile
           v-btn(
             icon
             v-if="$route.name==='アカウント設定'"

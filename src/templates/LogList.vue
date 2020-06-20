@@ -18,7 +18,7 @@ div
     text="削除したデータは今までの記録からも消されます")
   time-dialog(
     ref="edit"
-    title="時間を編集")
+    title="時刻を編集")
 </template>
 
 <script>
