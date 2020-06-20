@@ -4,7 +4,7 @@
       :color="color")
       user-card(
         v-for="el in userData"
-        :showRank="true"
+        :showRank="showRank"
         :name="el.name"
         :rank="el.rank")
 </template>
@@ -23,13 +23,6 @@ export default {
     color: {
       type: String
     }
-  },
-  computed: {},
-  methods: {},
-  data() {
-    return {}
   }
 }
 </script>
-
-<style scoped></style>

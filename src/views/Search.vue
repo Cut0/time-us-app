@@ -5,7 +5,7 @@ v-row(
   v-responsive(max-width="598")
     v-card.mx-sm-3.mt-sm-5.mb-sm-1
       user-list(
-        :showRank="true"
+        :showRank="false"
         :userData="sample_userData"
         color="light-green")
 </template>

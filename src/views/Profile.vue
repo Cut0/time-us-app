@@ -49,7 +49,7 @@ v-row(
           v-date-picker(
             v-model="date" 
             @input="calendar= false"
-            no-title 
+            no-title
             scrollable)
         v-btn.mt-6.mb-2(
           block

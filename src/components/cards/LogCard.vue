@@ -7,7 +7,9 @@
         v-list-item-subtitle {{text}}
       v-list-item-action
         v-list-item-action-text {{time}}
-        v-icon(@click.stop="iconClicked") $delete
+        v-icon(
+          v-if="showDelete"
+          @click.stop="iconClicked") $delete
 </template>
 
 <script>
@@ -21,6 +23,9 @@ export default {
     },
     time: {
       type: String
+    },
+    showDelete: {
+      type: Boolean
     }
   },
   methods: {
