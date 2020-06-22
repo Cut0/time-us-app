@@ -2,10 +2,7 @@
 import { Line } from 'vue-chartjs'
 export default {
   extends: Line,
-  props: {
-    options: { type: Object, default: null },
-    params: { type: Array, default: () => [] },
-  },
+  props: { options: { type: Object, default: null }, params: { type: Array } },
   mounted() {
     this.renderChart(this.formatParams(this.params), this.options)
   },

@@ -63,7 +63,7 @@ export default defineComponent({
     })
     return {
       state,
-      onImagePicked(file: any) {
+      onImagePicked(file: File) {
         if (file !== undefined && file !== null) {
           if (file.name.lastIndexOf('.') <= 0) {
             return
@@ -71,7 +71,7 @@ export default defineComponent({
           const fr = new FileReader()
           fr.readAsDataURL(file)
           fr.addEventListener('load', () => {
-            state.uploadImageUrl = String(fr.result)
+            state.uploadImageUrl = fr.result as string
           })
         } else {
           state.uploadImageUrl = ''
