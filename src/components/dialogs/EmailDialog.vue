@@ -1,13 +1,13 @@
 <template lang="pug">
   v-dialog(
-    v-model="isOpened"
+    v-model="state.isOpened"
     max-width="290")
     v-card
       v-card-title.headline {{title}}
         v-text-field.my-2(
           label="メールアドレス"
-          v-model="email"
-          :rules="[rules.required, rules.email]"
+          v-model="state.email"
+          :rules="[state.rules.required, state.rules.email]"
           color="light-green")
       v-card-actions
         v-spacer
@@ -23,34 +23,37 @@
           | 決定
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { reactive, SetupContext, defineComponent } from '@vue/composition-api'
+export default defineComponent({
   props: {
     title: {
-      type: String
-    }
-  },
-  methods: {
-    open() {
-      this.isOpened = true
+      type: String,
+      default: '',
     },
-    buttonClicked(name) {
-      this.isOpened = false
-      this.$emit(name, this.email)
-    }
   },
-  data() {
-    return {
+  setup(_, context: SetupContext) {
+    const state = reactive({
       isOpened: false,
       email: '',
       rules: {
-        required: value => !!value || '必須項目です',
-        email: value => {
+        required: (value: string) => !!value || '必須項目です',
+        email: (value: string) => {
           const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
           return pattern.test(value) || '不正なメールアドレスです'
-        }
-      }
+        },
+      },
+    })
+    return {
+      state,
+      open() {
+        state.isOpened = true
+      },
+      buttonClicked(name: string) {
+        state.isOpened = false
+        context.emit(name, state.email)
+      },
     }
-  }
-}
+  },
+})
 </script>

@@ -12,10 +12,10 @@ v-row(
             justify="center")
             span.img-wrapper
               img(
-                v-if="uploadImageUrl" 
-                :src="uploadImageUrl")
+                v-if="state.uploadImageUrl" 
+                :src="state.uploadImageUrl")
           v-file-input(
-            v-model="input_image"
+            v-model="state.input_image"
             accept="image/*"
             show-size
             label="画像ファイルをアップロード"
@@ -24,18 +24,18 @@ v-row(
             @change="onImagePicked")
           v-text-field.my-2(
             label="ニックネーム"
-            v-model="name"
-            :rules="[rules.required]"
+            v-model="state.name"
+            :rules="[state.rules.required]"
             color="light-green"
             prepend-icon="$accountOutline")
           v-text-field.my-2(
             label="bio"
-            v-model="bio"
+            v-model="state.bio"
             color="light-green"
             prepend-icon="$bio")
           v-text-field.my-2(
             label="ウェブサイト"
-            v-model="web"
+            v-model="state.web"
             color="light-green"
             prepend-icon="$linkVariant")
           v-btn.my-6(
@@ -47,38 +47,39 @@ v-row(
             large
             to="/1") プロフィール決定      
 </template>
-<script>
-export default {
-  data() {
-    return {
-      show: false,
+<script lang="ts">
+import { reactive, defineComponent } from '@vue/composition-api'
+export default defineComponent({
+  setup() {
+    const state = reactive({
       name: '',
       bio: '',
       web: '',
       input_image: null,
       uploadImageUrl: '',
       rules: {
-        required: value => !!value || '必須項目です'
-      }
+        required: (value: string) => !!value || '必須項目です',
+      },
+    })
+    return {
+      state,
+      onImagePicked(file: any) {
+        if (file !== undefined && file !== null) {
+          if (file.name.lastIndexOf('.') <= 0) {
+            return
+          }
+          const fr = new FileReader()
+          fr.readAsDataURL(file)
+          fr.addEventListener('load', () => {
+            state.uploadImageUrl = String(fr.result)
+          })
+        } else {
+          state.uploadImageUrl = ''
+        }
+      },
     }
   },
-  methods: {
-    onImagePicked(file) {
-      if (file !== undefined && file !== null) {
-        if (file.name.lastIndexOf('.') <= 0) {
-          return
-        }
-        const fr = new FileReader()
-        fr.readAsDataURL(file)
-        fr.addEventListener('load', () => {
-          this.uploadImageUrl = fr.result
-        })
-      } else {
-        this.uploadImageUrl = ''
-      }
-    }
-  }
-}
+})
 </script>
 <style scoped lang="sass">
 .v-card

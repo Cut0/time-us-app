@@ -15,19 +15,19 @@ const routes = [
   {
     path: '/sign_in',
     name: 'サインイン',
-    component: SignIn
+    component: SignIn,
   },
   { path: '/setting', name: 'プロフィール編集', component: Setting },
   { path: '/config', name: 'アカウント設定', component: Config },
   { path: '/search', name: '検索', component: Search },
   { path: '/ranking', name: 'ランキング', component: Ranking },
-  { path: '/:id', name: 'プロフィール', component: Profile }
+  { path: '/:id', name: 'プロフィール', component: Profile },
 ]
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
 })
 
 export default router

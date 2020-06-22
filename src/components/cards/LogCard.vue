@@ -15,40 +15,49 @@
             @click.stop="deleteClicked") $delete
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { SetupContext, defineComponent } from '@vue/composition-api'
+export default defineComponent({
   props: {
     name: {
-      type: String
+      type: String,
+      default: '',
     },
     text: {
-      type: String
+      type: String,
+      default: '',
     },
     date: {
-      type: String
+      type: String,
+      default: '',
     },
     startTime: {
-      type: String
+      type: String,
+      default: '',
     },
     endTime: {
-      type: String
+      type: String,
+      default: '',
     },
     showDelete: {
-      type: Boolean
+      type: Boolean,
+      default: false,
+    },
+  },
+  setup(props, context: SetupContext) {
+    return {
+      deleteClicked() {
+        context.emit('deleteClicked')
+      },
+      editClicked() {
+        context.emit('editClicked', {
+          startTime: props.startTime,
+          endTime: props.endTime,
+        })
+      },
     }
   },
-  methods: {
-    deleteClicked() {
-      this.$emit('deleteClicked')
-    },
-    editClicked() {
-      this.$emit('editClicked', {
-        startTime: this.startTime,
-        endTime: this.endTime
-      })
-    }
-  }
-}
+})
 </script>
 
 <style scoped lang="sass">

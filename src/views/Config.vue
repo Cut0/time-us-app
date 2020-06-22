@@ -10,21 +10,21 @@ v-row(
         v-list-item-group(color="light-green")
           v-list-item(
             max-width="598"
-            @click="openEmailConfirm")
+            @click="$refs.email.open()")
             v-list-item-icon
               v-icon $emailOutline
             v-list-item-content
               v-list-item-title メールアドレス変更
           v-list-item(
             max-width="598"
-            @click="openPasswordConfirm")
+            @click="$refs.password.open()")
             v-list-item-icon
               v-icon $lockOutline
             v-list-item-content
               v-list-item-title パスワード変更
           v-list-item(
             max-width="598"
-            @click="openLogoutConfirm")
+            @click="$refs.logout.open()")
             v-list-item-icon
               v-icon $logout
             v-list-item-content
@@ -32,7 +32,7 @@ v-row(
           v-divider
           v-list-item(
             max-width="598"
-            @click="openWithdrawalConfirm")
+            @click="$refs.withdrawal.open()")
             v-list-item-icon
               v-icon $exit
             v-list-item-content
@@ -57,29 +57,24 @@ v-row(
 
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from '@vue/composition-api'
 import ConfirmDialog from '@/components/dialogs/ConfirmDialog.vue'
 import EmailDialog from '@/components/dialogs/EmailDialog.vue'
 import PasswordDialog from '@/components/dialogs/PasswordDialog.vue'
-export default {
+export default defineComponent({
   components: { ConfirmDialog, EmailDialog, PasswordDialog },
-  methods: {
-    openWithdrawalConfirm() {
-      this.$refs.withdrawal.open()
-    },
-    openPasswordConfirm() {
-      this.$refs.password.open()
-    },
-    openEmailConfirm() {
-      this.$refs.email.open()
-    },
-    openLogoutConfirm() {
-      this.$refs.logout.open()
-    },
-    sendEmail(event) {},
-    sendPassword(event) {}
-  }
-}
+  setup() {
+    return {
+      sendEmail(email: string) {
+        console.log(email)
+      },
+      sendPassword(password: string) {
+        console.log(password)
+      },
+    }
+  },
+})
 </script>
 
 <style scoped></style>

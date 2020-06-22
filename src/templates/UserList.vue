@@ -9,20 +9,24 @@
         :rank="el.rank")
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from '@vue/composition-api'
 import UserCard from '@/components/cards/UserCard.vue'
-export default {
+export default defineComponent({
   components: { UserCard },
   props: {
     showRank: {
-      type: Boolean
+      type: Boolean,
+      default: false,
     },
     userData: {
-      type: Array
+      type: Array,
+      default: (): [] => [],
     },
     color: {
-      type: String
-    }
-  }
-}
+      type: String,
+      default: null,
+    },
+  },
+})
 </script>

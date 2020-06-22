@@ -74,14 +74,14 @@
         v-slot:extension
         v-if="($route.name==='ランキング'||$route.name==='タイマー')")
         v-tabs(
-          v-model="tabs.timerTab"
+          v-model="state.tabs.timerTab"
           fixed-tabs
           centered
           v-if="$route.name==='タイマー'")
           v-tab(key="0") 本日
           v-tab(key="1") ログ
         v-tabs(
-          v-model="tabs.rankingTab"
+          v-model="state.tabs.rankingTab"
           fixed-tabs
           centered
           v-if="$route.name==='ランキング'")
@@ -90,7 +90,7 @@
           v-tab(key="2") 月間
           v-tab(key="3") 累計
     v-main
-      router-view(:tabs="tabs")
+      router-view(:tabs="state.tabs")
     v-bottom-navigation(
       v-if="$vuetify.breakpoint.xs"
       app
@@ -109,19 +109,19 @@
         v-icon $account
 </template>
 
-<script>
-export default {
-  data() {
+<script lang="ts">
+import { reactive, SetupContext, defineComponent } from '@vue/composition-api'
+export default defineComponent({
+  setup(_, context: SetupContext) {
+    const state = reactive({ tabs: { rankingTab: {}, timerTab: {} } })
     return {
-      tabs: { rankingTab: {}, timerTab: {} }
+      state,
+      pageMove(path: string) {
+        if (path !== context.root.$route.path) context.root.$router.push(path)
+      },
     }
   },
-  methods: {
-    pageMove(path) {
-      if (path !== this.$route.path) this.$router.push(path)
-    }
-  }
-}
+})
 </script>
 <style lang="sass">
 .v-main

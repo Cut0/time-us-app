@@ -8,26 +8,31 @@
         img(src="https://picsum.photos/200/300" alt="" loading="lazy")
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { SetupContext, defineComponent } from '@vue/composition-api'
+export default defineComponent({
   props: {
     showRank: {
       type: Boolean,
-      default: false
+      default: false,
     },
     rank: {
-      type: Number
+      type: Number,
+      default: 0,
     },
     name: {
-      type: String
+      type: String,
+      default: '',
+    },
+  },
+  setup(_, context: SetupContext) {
+    return {
+      clicked() {
+        context.emit('clicked')
+      },
     }
   },
-  methods: {
-    clicked() {
-      this.$emit('clicked')
-    }
-  }
-}
+})
 </script>
 
 <style scoped lang="sass">

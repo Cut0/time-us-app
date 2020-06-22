@@ -1,19 +1,19 @@
 <template lang="pug">
   v-dialog(
-    v-model="isOpened"
+    v-model="state.isOpened"
     max-width="290")
     v-card
       v-card-title.headline {{title}}
         v-text-field.my-2(
-          v-model="password"
-          :append-icon="show ? '$eye' : '$eyeoff'"
-          :rules="[rules.required, rules.min]"
-          :type="show ? 'text' : 'password'"
+          v-model="state.password"
+          :append-icon="state.show ? '$eye' : '$eyeoff'"
+          :rules="[state.rules.required, state.rules.min]"
+          :type="state.show ? 'text' : 'password'"
           name="input-10-1"
           label="パスワード"
           hint="8文字以上のパスワードにしてください"
           counter
-          @click:append="show = !show"
+          @click:append="state.show = !state.show"
           color="light-green")
       v-card-actions
         v-spacer
@@ -29,32 +29,36 @@
           | 決定
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { reactive, SetupContext, defineComponent } from '@vue/composition-api'
+export default defineComponent({
   props: {
     title: {
-      type: String
-    }
-  },
-  methods: {
-    open() {
-      this.isOpened = true
+      type: String,
+      default: '',
     },
-    buttonClicked(name) {
-      this.isOpened = false
-      this.$emit(name, this.password)
-    }
   },
-  data() {
-    return {
+  setup(_, context: SetupContext) {
+    const state = reactive({
       show: false,
       isOpened: false,
       password: '',
       rules: {
-        required: value => !!value || '必須項目です',
-        min: v => v.length >= 8 || '8文字以上のパスワードにしてください'
-      }
+        required: (value: string) => !!value || '必須項目です',
+        min: (value: string) =>
+          value.length >= 8 || '8文字以上のパスワードにしてください',
+      },
+    })
+    return {
+      state,
+      open() {
+        state.isOpened = true
+      },
+      buttonClicked(name: string) {
+        state.isOpened = false
+        context.emit(name, state.password)
+      },
     }
-  }
-}
+  },
+})
 </script>

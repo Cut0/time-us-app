@@ -34,10 +34,10 @@ v-row(
           v-icon(
             size="18") $linkVariant
           a.ml-2(href="https://portfolio-ray.web.app/") https://portfolio-ray.web.app/
-        v-menu.my-2(v-model="calendar" :close-on-content-click="false" :nudge-right="40" transition="scale-transition" min-width="290px")
+        v-menu.my-2(v-model="state.calendar" :close-on-content-click="false" :nudge-right="40" transition="scale-transition" min-width="290px")
           template(v-slot:activator="{ on, attrs }")
             v-text-field.body-2(
-              v-model="date" 
+              v-model="state.date" 
               v-bind="attrs" 
               v-on="on"
               dense
@@ -47,8 +47,8 @@ v-row(
                 slot="prepend"
                 size="18") $calendar
           v-date-picker(
-            v-model="date" 
-            @input="calendar= false"
+            v-model="state.date" 
+            @input="state.calendar= false"
             no-title
             scrollable)
         v-btn.mt-6.mb-2(
@@ -65,24 +65,25 @@ v-row(
           v-tab(key="1") 推移
           v-tab-item(key="0")
             timer-detail(
-              :params="sampleA"
+              :params="state.sampleA"
               today-value="00:00:10")
           v-tab-item(key="1") 
-            timer-transition(:params="sampleB")
+            timer-transition(:params="state.sampleB")
 </template>
-<script>
+<script lang="ts">
+import { reactive, defineComponent } from '@vue/composition-api'
 import TimerDetail from '@/components/graphs/TimerDetail.vue'
 import TimerTransition from '@/components/graphs/TimerTransition.vue'
-export default {
+export default defineComponent({
   components: { TimerDetail, TimerTransition },
-  data() {
-    return {
+  setup() {
+    const state = reactive({
       date: new Date().toISOString().substr(0, 10),
       calendar: false,
       sampleA: [
         { label: '勉強', color: '#FF9800', value: 10 },
         { label: '休憩', color: '#8BC34A', value: 10 },
-        { label: 'その他', color: '#BDBDBD', value: 10 }
+        { label: 'その他', color: '#BDBDBD', value: 10 },
       ],
       sampleB: [
         { label: '勉強', color: '#FF9800', date: 0, value: 10 },
@@ -90,11 +91,12 @@ export default {
         { label: '勉強', color: '#FF9800', date: 1, value: 20 },
         { label: 'その他', color: '#8BC34A', date: 1, value: 15 },
         { label: '勉強', color: '#FF9800', date: 2, value: 40 },
-        { label: 'その他', color: '#8BC34A', date: 3, value: 5 }
-      ]
-    }
-  }
-}
+        { label: 'その他', color: '#8BC34A', date: 3, value: 5 },
+      ],
+    })
+    return { state }
+  },
+})
 </script>
 <style scoped lang="sass">
 .img-wrapper

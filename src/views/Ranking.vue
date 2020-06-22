@@ -7,45 +7,50 @@ v-row(
     v-card.mx-sm-3.mt-sm-5.mb-sm-1
       v-tabs-items(v-model="tabs.rankingTab")
         v-tab-item(
-          v-for="el in [...Array(4)].map((v, i)=> i)"
-          :key="el") 
+          v-for="(el,index) in state.sample_userData"
+          :key="index") 
           user-list(
             :showRank="true"
-            :userData="sample_userData"
+            :userData="el"
             color="light-green")
 </template>
-<script>
+<script lang="ts">
+import { reactive, defineComponent } from '@vue/composition-api'
 import UserList from '@/templates/UserList.vue'
-export default {
+export default defineComponent({
   components: { UserList },
   props: {
-    tabs: {}
+    tabs: { default: null },
   },
-  data() {
-    return {
+  setup() {
+    const state = reactive({
       sample_userData: [
-        { rank: 1, name: 'CutRay' },
-        { rank: 2, name: 'Kevin' },
-        { rank: 3, name: 'Komachi' },
-        { rank: 4, name: 'Riku' },
-        { rank: 1, name: 'CutRay' },
-        { rank: 2, name: 'Kevin' },
-        { rank: 3, name: 'Komachi' },
-        { rank: 4, name: 'Riku' },
-        { rank: 1, name: 'CutRay' },
-        { rank: 2, name: 'Kevin' },
-        { rank: 3, name: 'Komachi' },
-        { rank: 4, name: 'Riku' },
-        { rank: 1, name: 'CutRay' },
-        { rank: 2, name: 'Kevin' },
-        { rank: 3, name: 'Komachi' },
-        { rank: 4, name: 'Riku' },
-        { rank: 1, name: 'CutRay' },
-        { rank: 2, name: 'Kevin' },
-        { rank: 3, name: 'Komachi' },
-        { rank: 4, name: 'Riku' }
-      ]
-    }
-  }
-}
+        [
+          { rank: 1, name: 'CutRay' },
+          { rank: 2, name: 'Kevin' },
+          { rank: 3, name: 'Komachi' },
+          { rank: 4, name: 'Riku' },
+        ],
+        [
+          { rank: 1, name: 'CutRay' },
+          { rank: 2, name: 'Kevin' },
+          { rank: 3, name: 'Komachi' },
+        ],
+        [
+          { rank: 1, name: 'CutRay' },
+          { rank: 2, name: 'Kevin' },
+          { rank: 3, name: 'Komachi' },
+          { rank: 4, name: 'Riku' },
+        ],
+        [
+          { rank: 1, name: 'CutRay' },
+          { rank: 2, name: 'Kevin' },
+          { rank: 3, name: 'Komachi' },
+          { rank: 4, name: 'Riku' },
+        ],
+      ],
+    })
+    return { state }
+  },
+})
 </script>

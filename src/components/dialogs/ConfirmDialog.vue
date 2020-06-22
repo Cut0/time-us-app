@@ -1,6 +1,6 @@
 <template lang="pug">
   v-dialog(
-    v-model="isOpened"
+    v-model="state.isOpened"
     max-width="290")
     v-card
       v-card-title.headline {{title}}
@@ -19,27 +19,33 @@
           | 決定
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { reactive, SetupContext, defineComponent } from '@vue/composition-api'
+export default defineComponent({
   props: {
     title: {
-      type: String
+      type: String,
+      default: '',
     },
     text: {
-      type: String
-    }
-  },
-  methods: {
-    open() {
-      this.isOpened = true
+      type: String,
+      default: '',
     },
-    buttonClicked(name) {
-      this.isOpened = false
-      this.$emit(name)
+  },
+  setup(_, context: SetupContext) {
+    const state = reactive({
+      isOpened: false,
+    })
+    return {
+      state,
+      open() {
+        state.isOpened = true
+      },
+      buttonClicked(name: string) {
+        state.isOpened = false
+        context.emit(name)
+      },
     }
   },
-  data() {
-    return { isOpened: false }
-  }
-}
+})
 </script>

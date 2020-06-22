@@ -10,8 +10,8 @@ div
         :text="el.text"
         :startTime="el.startTime"
         :endTime="el.endTime"
-        @deleteClicked="openDeleteConfirm"
-        @editClicked="openEditDialog")
+        @deleteClicked="$refs.delete.open()"
+        @editClicked="$refs.edit.open({ startTime:el.startTime, endTime:el.endTime })")
   confirm-dialog(
     ref="delete"
     title="削除しますか？"
@@ -21,30 +21,26 @@ div
     title="時刻を編集")
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from '@vue/composition-api'
 import LogCard from '@/components/cards/LogCard.vue'
 import ConfirmDialog from '@/components/dialogs/ConfirmDialog.vue'
 import TimeDialog from '@/components/dialogs/TimeDialog.vue'
-export default {
+export default defineComponent({
   components: { LogCard, ConfirmDialog, TimeDialog },
   props: {
     logData: {
-      type: Array
+      type: Array,
+      default: (): [] => [],
     },
     showDelete: {
-      type: Boolean
+      type: Boolean,
+      default: false,
     },
     color: {
-      type: String
-    }
-  },
-  methods: {
-    openDeleteConfirm() {
-      this.$refs.delete.open()
+      type: String,
+      default: 'white',
     },
-    openEditDialog({ startTime, endTime }) {
-      this.$refs.edit.open({ startTime, endTime })
-    }
-  }
-}
+  },
+})
 </script>

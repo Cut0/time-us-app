@@ -1,17 +1,17 @@
 <template lang="pug">
   v-dialog(
-    v-model="isOpened"
+    v-model="state.isOpened"
     max-width="290")
     v-card
       v-card-title.headline {{title}}
         v-dialog(
           ref="startPicker" 
-          v-model="showStartPicker" 
-          :return-value.sync="startTime" 
+          v-model="state.showStartPicker" 
+          :return-value.sync="state.startTime" 
           width="344px")
           template(v-slot:activator="{ on, attrs }")
             v-text-field(
-              v-model="startTime" 
+              v-model="state.startTime" 
               label="開始時刻" 
               prepend-icon="$clock" 
               readonly="" 
@@ -19,30 +19,30 @@
               v-on="on"
               color="light-green")
           v-time-picker(
-            v-if="showStartPicker" 
-            v-model="startTime" 
+            v-if="state.showStartPicker" 
+            v-model="state.startTime" 
             use-seconds
             scrollable
             format="24hr"
             color="light-green"
-            @click:second="$refs.startPicker.save(startTime)")
+            @click:second="$refs.startPicker.save(state.startTime)")
             v-spacer
             v-btn(
               text
               color="light-green" 
-              @click="showStartPicker = false") キャンセル
+              @click="state.showStartPicker = false") キャンセル
             v-btn(
               text
               color="light-green" 
-              @click="$refs.startPicker.save(startTime)") 決定
+              @click="$refs.startPicker.save(state.startTime)") 決定
         v-dialog(
           ref="endPicker" 
-          v-model="showEndPicker" 
-          :return-value.sync="endTime" 
+          v-model="state.showEndPicker" 
+          :return-value.sync="state.endTime" 
           width="344px")
           template(v-slot:activator="{ on, attrs }")
             v-text-field(
-              v-model="endTime" 
+              v-model="state.endTime" 
               label="終了時刻" 
               prepend-icon="$clock" 
               readonly="" 
@@ -50,22 +50,22 @@
               v-on="on"
               color="light-green")
           v-time-picker(
-            v-if="showEndPicker" 
-            v-model="endTime" 
+            v-if="state.showEndPicker" 
+            v-model="state.endTime" 
             use-seconds
             scrollable
             format="24hr"
             color="light-green"
-            @click:second="$refs.endPicker.save(endTime)")
+            @click:second="$refs.endPicker.save(state.endTime)")
             v-spacer
             v-btn(
               text
               color="light-green" 
-              @click="showEndPicker = false") キャンセル
+              @click="state.showEndPicker = false") キャンセル
             v-btn(
               text
               color="light-green" 
-              @click="$refs.endPicker.save(endTime)") 決定
+              @click="$refs.endPicker.save(state.endTime)") 決定
       v-card-actions
         v-spacer
         v-btn(
@@ -80,32 +80,38 @@
           | 決定
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { reactive, SetupContext, defineComponent } from '@vue/composition-api'
+export default defineComponent({
   props: {
     title: {
-      type: String
-    }
-  },
-  methods: {
-    open({ startTime, endTime }) {
-      this.startTime = startTime
-      this.endTime = endTime
-      this.isOpened = true
+      type: String,
+      default: '',
     },
-    buttonClicked(name) {
-      this.isOpened = false
-      this.$emit(name, { startTime: this.startTime, endTime: this.endTime })
+  },
+  setup(_, context: SetupContext) {
+    const state = reactive({
+      startTime: '',
+      showStartPicker: false,
+      endTime: '',
+      showEndPicker: false,
+      isOpened: false,
+    })
+    return {
+      state,
+      open({ startTime, endTime }: { startTime: string; endTime: string }) {
+        state.startTime = startTime
+        state.endTime = endTime
+        state.isOpened = true
+      },
+      buttonClicked(name: string) {
+        state.isOpened = false
+        context.emit(name, {
+          startTime: state.startTime,
+          endTime: state.endTime,
+        })
+      },
     }
   },
-  data() {
-    return {
-      startTime: null,
-      showStartPicker: false,
-      endTime: null,
-      showEndPicker: false,
-      isOpened: false
-    }
-  }
-}
+})
 </script>
