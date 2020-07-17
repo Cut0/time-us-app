@@ -5,7 +5,7 @@ v-row(
   v-responsive(
     max-width="598"
     width="375")
-      v-card.mx-sm-3.mt-sm-5.mb-sm-1.py-1.px-5
+      v-card
           v-text-field.my-2(
             label="メールアドレス"
             v-model="state.email"

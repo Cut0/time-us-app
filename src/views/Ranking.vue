@@ -4,7 +4,7 @@ v-row(
     justify="center")  
   v-responsive(
     max-width="598")
-    v-card.mx-sm-3.mt-sm-5.mb-sm-1
+    v-card
       v-tabs-items(v-model="tabs.rankingTab")
         v-tab-item(
           v-for="(el,index) in state.sample_userData"

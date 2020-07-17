@@ -5,7 +5,7 @@ v-row(
   v-responsive(
     max-width="598"
     width="375")
-    v-card.mx-sm-3.mt-sm-5.mb-sm-1
+    v-card
       v-tabs-items(v-model="tabs.timerTab")
         v-tab-item(key="0")
           v-card.pb-5

@@ -3,7 +3,7 @@ v-row(
   no-gutters
   justify="center")  
   v-responsive(max-width="598")
-    v-card.mx-sm-3.mt-sm-5.mb-sm-1
+    v-card
       user-list(
         :showRank="false"
         :userData="state.sample_userData"
