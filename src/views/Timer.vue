@@ -1,13 +1,12 @@
 <template lang="pug"> 
-v-row(
-    no-gutters
-    justify="center")  
-  v-responsive(
-    max-width="598"
-    width="375")
-    v-card
-      v-tabs-items(v-model="tabs.timerTab")
-        v-tab-item(key="0")
+  v-tabs-items(v-model="tabs.timerTab")
+    v-tab-item(key="0")
+      v-row(
+        no-gutters
+        justify="center")  
+        v-responsive(
+          max-width="598"
+          width="375")
           v-card.pb-5
             timer-detail(
               :params="state.sampleA"
@@ -19,11 +18,11 @@ v-row(
                 color="light-green"
                 elevation="3"
                 large) 休憩中
-        v-tab-item(key="1")
-          log-list(
-            :showDelete="true"
-            :logData="state.sample_userData"
-            color="light-green")
+    v-tab-item(key="1")
+      log-list(
+        :showDelete="true"
+        :logData="state.sample_userData"
+        color="light-green")
 </template>
 <script lang="ts">
 import { reactive, defineComponent } from '@vue/composition-api'

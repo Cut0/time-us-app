@@ -36,20 +36,25 @@ export default {
             if (!meta.hidden) {
               meta.data.forEach(function (element, index) {
                 // フォントの設定
-                let fontSize = 12
-                let fontStyle = 'normal'
+                const fontSize = 12
+                const fontStyle = 'normal'
+                const fontFamily = 'Helvetica Neue'
                 ctx.fillStyle = '#000'
-                ctx.font = Chart.helpers.fontString(fontSize, fontStyle)
+                ctx.font = Chart.helpers.fontString(
+                  fontSize,
+                  fontStyle,
+                  fontFamily
+                )
                 // ラベルをパーセント表示に変更
-                let labelString = chart.data.labels[index]
-                let dataString =
+                const labelString = chart.data.labels[index]
+                const dataString =
                   Math.round((dataset.data[index] / dataSum) * 100).toString() +
                   '%'
                 // positionの設定
                 ctx.textAlign = 'center'
                 ctx.textBaseline = 'middle'
-                let padding = -2
-                let position = element.tooltipPosition()
+                const padding = -2
+                const position = element.tooltipPosition()
                 // ツールチップに変更内容を表示
                 ctx.fillText(
                   labelString,
@@ -66,8 +71,9 @@ export default {
           })
           const fontSize = 24
           const fontStyle = 'normal'
+          const fontFamily = 'Helvetica Neue'
           ctx.fillStyle = '#000'
-          ctx.font = Chart.helpers.fontString(fontSize, fontStyle)
+          ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily)
           ctx.textAlign = 'center'
           ctx.textBaseline = 'middle'
           ctx.fillText(this.todayValue, chart.width / 2, chart.height / 2)

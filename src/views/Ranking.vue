@@ -1,18 +1,17 @@
 <template lang="pug"> 
-v-row(
-    no-gutters
-    justify="center")  
-  v-responsive(
-    max-width="598")
-    v-card
       v-tabs-items(v-model="tabs.rankingTab")
         v-tab-item(
           v-for="(el,index) in state.sample_userData"
-          :key="index") 
-          user-list(
-            :showRank="true"
-            :userData="el"
-            color="light-green")
+          :key="index")
+          v-row(
+            no-gutters
+            justify="center")  
+            v-responsive(
+              max-width="598")
+              user-list(
+                :showRank="true"
+                :userData="el"
+                color="light-green")
 </template>
 <script lang="ts">
 import { reactive, defineComponent } from '@vue/composition-api'

@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+.list-wrapper
   v-list(rounded)
     v-list-item-group(
       :color="color")

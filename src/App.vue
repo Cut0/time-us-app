@@ -2,9 +2,10 @@
   v-app
     v-navigation-drawer(
       v-if="!$vuetify.breakpoint.xs"
+      app
       fixed
       permanent 
-      app
+      touchless
       dark
       color="light-green")
       v-list.py-0

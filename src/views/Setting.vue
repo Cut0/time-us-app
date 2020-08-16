@@ -64,17 +64,14 @@ export default defineComponent({
       state,
       onImagePicked(file: File) {
         if (file !== undefined && file !== null) {
-          if (file.name.lastIndexOf('.') <= 0) {
-            return
-          }
+          if (file.name.lastIndexOf('.') <= 0) return
           const fr = new FileReader()
           fr.readAsDataURL(file)
-          fr.addEventListener('load', () => {
-            state.uploadImageUrl = fr.result as string
-          })
-        } else {
-          state.uploadImageUrl = ''
-        }
+          fr.addEventListener(
+            'load',
+            () => (state.uploadImageUrl = fr.result as string)
+          )
+        } else state.uploadImageUrl = ''
       },
     }
   },
