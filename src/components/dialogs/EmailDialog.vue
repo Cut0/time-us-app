@@ -5,22 +5,17 @@
     v-card
       v-card-title.headline {{title}}
         v-text-field.my-2(
-          label="メールアドレス"
           v-model="state.email"
           :rules="[state.rules.required, state.rules.email]"
-          color="light-green")
+          label="メールアドレス" color="light-green")
       v-card-actions
         v-spacer
         v-btn(
-          text
-          color="light-green" 
-          @click="buttonClicked('cancel')")
-          | キャンセル
+          @click="buttonClicked('cancel')"
+          color="light-green" text) キャンセル
         v-btn(
-          text
-          color="light-green" 
-          @click="buttonClicked('ok')")
-          | 決定
+          @click="buttonClicked('ok')"
+          color="light-green" text) 決定
 </template>
 
 <script lang="ts">

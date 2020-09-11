@@ -1,7 +1,6 @@
 <template lang="pug">
   v-list(rounded)
-    v-list-item-group(
-      :color="color")
+    v-list-item-group(:color="color")
       user-card(
         v-for="el in userData"
         :showRank="showRank"

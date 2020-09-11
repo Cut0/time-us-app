@@ -4,10 +4,8 @@
           v-for="(el,index) in state.sample_userData"
           :key="index")
           v-row(
-            justify="center"
-            no-gutters)  
-            v-responsive(
-              max-width="598")
+            justify="center" no-gutters)  
+            v-responsive(max-width="598")
               user-list(
                 :showRank="true"
                 :userData="el"

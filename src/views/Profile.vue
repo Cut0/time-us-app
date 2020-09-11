@@ -1,30 +1,17 @@
 <template lang="pug"> 
-v-row(
-    justify="center"
-    no-gutters)  
-  v-responsive(
-    max-width="598" 
-    width="375")
+v-row(justify="center" no-gutters)  
+  v-responsive(max-width="598" width="375")
     v-card
       v-container
-        v-row.my-1(
-          align="center"
-          justify="start"
-          no-gutters)
+        v-row.my-1(align="center" justify="start" no-gutters)
           span.img-wrapper
             img(src="https://picsum.photos/200/300" alt="" loading="lazy")
           v-row.ml-8.mt-6(
-            align="center"
-            justify="space-around"
-            no-gutters)
-            v-col(
-              align="center"
-              no-gutters)
+            align="center" justify="space-around" no-gutters)
+            v-col(align="center" no-gutters)
               .subtitle-1 本日
               .subtitle-1 00:00
-            v-col(
-              align="center"
-              no-gutters)
+            v-col(align="center" no-gutters)
               .subtitle-1 累計
               .subtitle-1 00:00
         .title Cut Ray
@@ -37,30 +24,23 @@ v-row(
           v-model="state.calendar" 
           :close-on-content-click="false" 
           :nudge-right="40" 
-          transition="scale-transition" 
-          min-width="290px")
+          transition="scale-transition" min-width="290px")
           template(v-slot:activator="{ on, attrs }")
             v-text-field.body-2(
               v-model="state.date" 
               v-bind="attrs" 
               v-on="on"
-              color="light-green"
-              dense　hide-details)
-              v-icon(
-                slot="prepend"
-                size="18") $calendar
+              color="light-green" dense　hide-details)
+              v-icon(slot="prepend" size="18") $calendar
           v-date-picker(
             v-model="state.date" 
             @input="state.calendar= false"
             no-title　scrollable)
         v-btn.mt-6.mb-2(
-          color="light-green"
           to="/setting"
-          block　outlined) プロフィール編集
+          color="light-green" block　outlined) プロフィール編集
       v-container.pa-0.py-sm-2
-        v-tabs(
-          color="light-green"
-          grow　center)
+        v-tabs(color="light-green" grow　center)
           v-tab(key="0") 詳細
           v-tab(key="1") 推移
           v-tab-item(key="0")

@@ -1,7 +1,5 @@
 <template lang="pug">
-v-row(
-  no-gutters
-  justify="center")  
+v-row(justify="center" no-gutters)  
   v-responsive(max-width="598")
     v-card
       user-list(

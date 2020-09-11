@@ -6,27 +6,19 @@
       v-card-title.headline {{title}}
         v-text-field.my-2(
           v-model="state.password"
+          @click:append="state.show = !state.show"
           :append-icon="state.show ? '$eye' : '$eyeoff'"
           :rules="[state.rules.required, state.rules.min]"
           :type="state.show ? 'text' : 'password'"
-          name="input-10-1"
-          label="パスワード"
-          hint="8文字以上のパスワードにしてください"
-          counter
-          @click:append="state.show = !state.show"
-          color="light-green")
+          name="input-10-1" label="パスワード" hint="8文字以上のパスワードにしてください" color="light-green" counter)
       v-card-actions
         v-spacer
         v-btn(
-          text
-          color="light-green" 
-          @click="buttonClicked('cancel')")
-          | キャンセル
+          @click="buttonClicked('cancel')"
+          color="light-green" text) キャンセル
         v-btn(
-          text
-          color="light-green" 
-          @click="buttonClicked('ok')")
-          | 決定
+          @click="buttonClicked('ok')"
+          color="light-green" text) 決定
 </template>
 
 <script lang="ts">

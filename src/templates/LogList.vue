@@ -5,17 +5,16 @@
       :color="color")
       log-card(
         v-for="el in logData"
+        @deleteClicked="$refs.delete.open()"
+        @editClicked="$refs.edit.open({ startTime:el.startTime, endTime:el.endTime })"
         :showDelete="showDelete"
         :name="el.name"
         :text="el.text"
         :startTime="el.startTime"
-        :endTime="el.endTime"
-        @deleteClicked="$refs.delete.open()"
-        @editClicked="$refs.edit.open({ startTime:el.startTime, endTime:el.endTime })")
+        :endTime="el.endTime")
   confirm-dialog(
     ref="delete"
-    title="削除しますか？"
-    text="削除したデータは今までの記録からも消されます")
+    title="削除しますか？" text="削除したデータは今までの記録からも消されます")
   time-dialog(
     ref="edit"
     title="時刻を編集")

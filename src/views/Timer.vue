@@ -1,21 +1,14 @@
 <template lang="pug"> 
   v-tabs-items(v-model="tabs.timerTab")
     v-tab-item(key="0")
-      v-row(
-        justify="center"
-        no-gutters)  
-        v-responsive(
-          max-width="598"
-          width="375")
+      v-row(justify="center" no-gutters)  
+        v-responsive(max-width="598" width="375")
           v-card.pb-5
             timer-detail(
               :params="state.sampleA"
               today-value="00:00:10")
             v-container.mt-6
-              v-btn(
-                color="light-green"
-                elevation="3"
-                block rounded large) 休憩中
+              v-btn(color="light-green" elevation="3" block rounded large) 休憩中
     v-tab-item(key="1")
       log-list(
         :logData="state.sample_userData"
