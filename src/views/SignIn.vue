@@ -1,43 +1,28 @@
 <template lang="pug"> 
 v-row(
-  no-gutters
-  justify="center")  
+  justify="center"
+  no-gutters)  
   v-responsive(
     max-width="598"
     width="375")
       v-card
           v-text-field.my-2(
-            label="メールアドレス"
             v-model="state.email"
             :rules="[state.rules.required, state.rules.email]"
-            color="light-green")
+            label="メールアドレス" color="light-green")
           v-text-field.my-2(
             v-model="password"
+            @click:append="state.showPassword = !state.showPassword"
             :append-icon="state.showPassword ? '$eye' : '$eyeoff'"
             :rules="[state.rules.required, state.rules.min]"
             :type="state.showPassword ? 'text' : 'password'"
-            name="input-10-1"
-            label="パスワード"
-            hint="8文字以上のパスワードにしてください"
-            counter
-            @click:append="state.showPassword = !state.showPassword"
-            color="light-green")
+            name="input-10-1" label="パスワード" hint="8文字以上のパスワードにしてください" color="light-green" counter)
           v-btn.my-6(
-            block
-            rounded
-            dark
-            color="light-green"
-            elevation="3"
-            large
-            to="/") ログイン
+            to="/"
+            color="light-green" elevation="3" block rounded dark large) ログイン
           v-btn.my-4(
-            block
-            rounded
-            outlined
-            color="light-green"
-            elevation="3"
-            large
-            to="/setting") アカウント作成          
+            to="/setting"
+            color="light-green" elevation="3" large　block　rounded　outlined) アカウント作成          
 </template>
 <script lang="ts">
 import { reactive, defineComponent } from '@vue/composition-api'

@@ -1,13 +1,8 @@
 <template lang="pug">
   v-app
     v-navigation-drawer(
-      v-if="!$vuetify.breakpoint.xs"
-      app
-      fixed
-      permanent 
-      touchless
-      dark
-      color="light-green")
+      v-if="!$vuetify.breakpoint.xs"　
+      color="light-green" app fixed permanent touchless dark)
       v-list.py-0
         v-list-item(@click="pageMove('/1')")
           v-list-item-avatar
@@ -38,10 +33,8 @@
             v-list-item-content
               v-list-item-title アカウント設定
     v-app-bar(
-      app
-      fixed
-      dark
-      color="light-green")
+      color="light-green"
+      app fixed dark)
       template(v-if="$route.name!=='検索'")
         v-app-bar-nav-icon
           v-icon(v-if="$route.name==='タイマー'") $clockOutline
@@ -50,42 +43,31 @@
           v-icon(v-if="$route.name==='サインイン'") $login
           v-icon(v-if="$route.name==='プロフィール編集'") $faceProfile
           v-btn(
-            icon
             v-if="$route.name==='アカウント設定'"
-            to='/1')
+            to='/1' icon)
             v-icon $allowLeft
         v-toolbar-title {{this.$route.name}}
         v-spacer
         v-btn(
-          icon
           v-if="$route.name==='プロフィール'"
-          to='/config')
+          to='/config' icon) 
           v-icon $cog
       v-text-field.mx-sm-12.px-sm-12(
-        placeholder="ユーザー名で検索"
-        prepend-inner-icon="$magnify"
-        hide-details
-        outlined
-        rounded
-        dense
-        clearable
-        color="white"
-        v-if="$route.name==='検索'")
+        v-if="$route.name==='検索'"
+        placeholder="ユーザー名で検索" prepend-inner-icon="$magnify" color="white" hide-details outlined rounded dense clearable)
       template(
-        v-slot:extension
-        v-if="($route.name==='ランキング'||$route.name==='タイマー')")
+        v-if="($route.name==='ランキング'||$route.name==='タイマー')"
+        v-slot:extension)
         v-tabs(
+          v-if="$route.name==='タイマー'"
           v-model="state.tabs.timerTab"
-          fixed-tabs
-          centered
-          v-if="$route.name==='タイマー'")
+          fixed-tabs centered)
           v-tab(key="0") 本日
           v-tab(key="1") ログ
         v-tabs(
+          v-if="$route.name==='ランキング'"
           v-model="state.tabs.rankingTab"
-          fixed-tabs
-          centered
-          v-if="$route.name==='ランキング'")
+          fixed-tabs centered)
           v-tab(key="0") 本日
           v-tab(key="1") 週間
           v-tab(key="2") 月間
@@ -94,12 +76,7 @@
       router-view(:tabs="state.tabs")
     v-bottom-navigation(
       v-if="$vuetify.breakpoint.xs"
-      app
-      fixed
-      grow
-      dark
-      background-color="light-green"
-      color="white")
+      background-color="light-green" color="white" app fixed grow dark)
       v-btn(to="/")
         v-icon $clock
       v-btn(to="/search")

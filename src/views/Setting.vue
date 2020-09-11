@@ -1,50 +1,29 @@
 <template lang="pug"> 
-v-row(
-  no-gutters
-  justify="center")  
-  v-responsive(
-    max-width="598"
-    width="375")
-          v-row.mt-4.mb-8(
-            no-gutters
-            align="center"
-            justify="center")
+v-row(justify="center" no-gutters)  
+  v-responsive(max-width="598" width="375")
+          v-row.mt-4.mb-8(align="center" justify="center" no-gutters)
             span.img-wrapper
               img(
                 v-if="state.uploadImageUrl" 
                 :src="state.uploadImageUrl")
           v-file-input(
             v-model="state.input_image"
+            @change="onImagePicked"
             accept="image/*"
-            show-size
-            label="画像ファイルをアップロード"
-            color="light-green"
-            prepend-icon="$image"
-            @change="onImagePicked")
+            show-size label="画像ファイルをアップロード" color="light-green" prepend-icon="$image")
           v-text-field.my-2(
-            label="ニックネーム"
             v-model="state.name"
             :rules="[state.rules.required]"
-            color="light-green"
-            prepend-icon="$accountOutline")
+            label="ニックネーム" color="light-green" prepend-icon="$accountOutline")
           v-text-field.my-2(
-            label="bio"
             v-model="state.bio"
-            color="light-green"
-            prepend-icon="$bio")
+            label="bio" color="light-green" prepend-icon="$bio")
           v-text-field.my-2(
-            label="ウェブサイト"
             v-model="state.web"
-            color="light-green"
-            prepend-icon="$linkVariant")
+            label="ウェブサイト" color="light-green" prepend-icon="$linkVariant")
           v-btn.my-6(
-            block
-            rounded
-            dark
-            color="light-green"
-            elevation="3"
-            large
-            to="/1") プロフィール決定      
+            to="/1"
+            color="light-green" elevation="3" large block rounded dark) プロフィール決定      
 </template>
 <script lang="ts">
 import { reactive, defineComponent } from '@vue/composition-api'

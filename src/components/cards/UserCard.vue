@@ -1,5 +1,7 @@
 <template lang="pug">
-    v-list-item(max-width="598" @click="clicked")
+    v-list-item(
+      @click="clicked" 
+      max-width="598")
       v-list-item-icon(v-if="showRank")
         v-list-item-title {{rank}}
       v-list-item-content

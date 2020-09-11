@@ -20,17 +20,15 @@
               color="light-green")
           v-time-picker(
             v-if="state.showStartPicker" 
-            v-model="state.startTime" 
-            use-seconds
-            scrollable
+            v-model="state.startTime"
+            @click:second="$refs.startPicker.save(state.startTime)" 
             format="24hr"
             color="light-green"
-            @click:second="$refs.startPicker.save(state.startTime)")
+            use-seconds　scrollable)
             v-spacer
             v-btn(
-              text
-              color="light-green" 
-              @click="state.showStartPicker = false") キャンセル
+              @click="state.showStartPicker = false"
+              color="light-green"　text) キャンセル
             v-btn(
               text
               color="light-green" 

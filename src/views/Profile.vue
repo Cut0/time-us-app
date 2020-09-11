@@ -1,66 +1,66 @@
 <template lang="pug"> 
 v-row(
-    no-gutters
-    justify="center")  
+    justify="center"
+    no-gutters)  
   v-responsive(
     max-width="598" 
     width="375")
     v-card
       v-container
         v-row.my-1(
-          no-gutters
           align="center"
-          justify="start")
+          justify="start"
+          no-gutters)
           span.img-wrapper
             img(src="https://picsum.photos/200/300" alt="" loading="lazy")
           v-row.ml-8.mt-6(
-            no-gutters
             align="center"
-            justify="space-around")
+            justify="space-around"
+            no-gutters)
             v-col(
-              no-gutters
-              align="center")
+              align="center"
+              no-gutters)
               .subtitle-1 本日
               .subtitle-1 00:00
             v-col(
-              no-gutters
-              align="center")
+              align="center"
+              no-gutters)
               .subtitle-1 累計
               .subtitle-1 00:00
         .title Cut Ray
         .body-2.my-1
           span 工学部情報工学科ああああああああああああああ大学行きたくねえええええええええええええ
         .body-2.my-2
-          v-icon(
-            size="18") $linkVariant
+          v-icon(size="18") $linkVariant
           a.ml-2(href="https://portfolio-ray.web.app/") https://portfolio-ray.web.app/
-        v-menu.my-2(v-model="state.calendar" :close-on-content-click="false" :nudge-right="40" transition="scale-transition" min-width="290px")
+        v-menu.my-2(
+          v-model="state.calendar" 
+          :close-on-content-click="false" 
+          :nudge-right="40" 
+          transition="scale-transition" 
+          min-width="290px")
           template(v-slot:activator="{ on, attrs }")
             v-text-field.body-2(
               v-model="state.date" 
               v-bind="attrs" 
               v-on="on"
-              dense
-              hide-details
-              color="light-green")
+              color="light-green"
+              dense　hide-details)
               v-icon(
                 slot="prepend"
                 size="18") $calendar
           v-date-picker(
             v-model="state.date" 
             @input="state.calendar= false"
-            no-title
-            scrollable)
+            no-title　scrollable)
         v-btn.mt-6.mb-2(
-          block
-          outlined
           color="light-green"
-          to="/setting") プロフィール編集
+          to="/setting"
+          block　outlined) プロフィール編集
       v-container.pa-0.py-sm-2
         v-tabs(
-          grow
-          center
-          color="light-green")
+          color="light-green"
+          grow　center)
           v-tab(key="0") 詳細
           v-tab(key="1") 推移
           v-tab-item(key="0")

@@ -8,15 +8,11 @@
       v-card-actions
         v-spacer
         v-btn(
-          text
-          color="light-green" 
-          @click="buttonClicked('cancel')")
-          | キャンセル
+          @click="buttonClicked('cancel')"
+          color="light-green" text) キャンセル
         v-btn(
-          text
-          color="light-green" 
-          @click="buttonClicked('ok')")
-          | 決定
+          @click="buttonClicked('ok')"
+          color="light-green" text) 決定
 </template>
 
 <script lang="ts">
