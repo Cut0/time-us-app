@@ -12,27 +12,21 @@
           template(v-slot:activator="{ on, attrs }")
             v-text-field(
               v-model="state.startTime" 
-              label="開始時刻" 
-              prepend-icon="$clock" 
-              readonly="" 
               v-bind="attrs" 
               v-on="on"
-              color="light-green")
+              label="開始時刻" prepend-icon="$clock" readonly="" color="light-green")
           v-time-picker(
             v-if="state.showStartPicker" 
             v-model="state.startTime"
             @click:second="$refs.startPicker.save(state.startTime)" 
-            format="24hr"
-            color="light-green"
-            use-seconds　scrollable)
+            format="24hr" color="light-green" use-seconds　scrollable)
             v-spacer
             v-btn(
               @click="state.showStartPicker = false"
-              color="light-green"　text) キャンセル
+              color="light-green" text) キャンセル
             v-btn(
-              text
-              color="light-green" 
-              @click="$refs.startPicker.save(state.startTime)") 決定
+              @click="$refs.startPicker.save(state.startTime)"
+              color="light-green" text) 決定
         v-dialog(
           ref="endPicker" 
           v-model="state.showEndPicker" 
@@ -41,41 +35,29 @@
           template(v-slot:activator="{ on, attrs }")
             v-text-field(
               v-model="state.endTime" 
-              label="終了時刻" 
-              prepend-icon="$clock" 
-              readonly="" 
               v-bind="attrs" 
               v-on="on"
-              color="light-green")
+              label="終了時刻" prepend-icon="$clock" readonly="" color="light-green")
           v-time-picker(
             v-if="state.showEndPicker" 
-            v-model="state.endTime" 
-            use-seconds
-            scrollable
-            format="24hr"
-            color="light-green"
-            @click:second="$refs.endPicker.save(state.endTime)")
+            v-model="state.endTime"
+            @click:second="$refs.endPicker.save(state.endTime)" 
+            use-seconds scrollable format="24hr" color="light-green")
             v-spacer
             v-btn(
-              text
-              color="light-green" 
-              @click="state.showEndPicker = false") キャンセル
+              @click="state.showEndPicker = false"
+              color="light-green" text) キャンセル
             v-btn(
-              text
-              color="light-green" 
-              @click="$refs.endPicker.save(state.endTime)") 決定
+              @click="$refs.endPicker.save(state.endTime)"
+              text color="light-green") 決定
       v-card-actions
         v-spacer
         v-btn(
-          text
-          color="light-green" 
-          @click="buttonClicked('cancel')")
-          | キャンセル
+          @click="buttonClicked('cancel')"
+          color="light-green" text) キャンセル
         v-btn(
-          text
-          color="light-green" 
-          @click="buttonClicked('ok')")
-          | 決定
+          @click="buttonClicked('ok')"
+          color="light-green" text) 決定
 </template>
 
 <script lang="ts">
