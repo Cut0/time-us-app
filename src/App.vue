@@ -14,6 +14,11 @@
         v-list-item-group
           v-list-item(@click="pageMove('/')")
             v-list-item-icon
+              v-icon  $crown
+            v-list-item-content
+              v-list-item-title ランキング
+          v-list-item(@click="pageMove('/1/timer')")
+            v-list-item-icon
               v-icon  $clockOutline
             v-list-item-content
               v-list-item-title タイマー
@@ -22,19 +27,12 @@
               v-icon  $magnify
             v-list-item-content
               v-list-item-title ユーザー検索
-          v-list-item(@click="pageMove('/ranking')")
-            v-list-item-icon
-              v-icon  $crown
-            v-list-item-content
-              v-list-item-title ランキング
-          v-list-item(@click="pageMove('/config')")
+          v-list-item(@click="pageMove('/1/config')")
             v-list-item-icon
               v-icon  $cog
             v-list-item-content
               v-list-item-title アカウント設定
-    v-app-bar(
-      color="light-green"
-      app fixed dark)
+    v-app-bar(color="light-green" app fixed dark)
       template(v-if="$route.name!=='検索'")
         v-app-bar-nav-icon
           v-icon(v-if="$route.name==='タイマー'") $clockOutline
@@ -50,7 +48,7 @@
         v-spacer
         v-btn(
           v-if="$route.name==='プロフィール'"
-          to='/config' icon) 
+          to='/1/config' icon) 
           v-icon $cog
       v-text-field.mx-sm-12.px-sm-12(
         v-if="$route.name==='検索'"
@@ -78,11 +76,11 @@
       v-if="$vuetify.breakpoint.xs"
       background-color="light-green" color="white" app fixed grow dark)
       v-btn(to="/")
+        v-icon $crown
+      v-btn(to="/1/timer")
         v-icon $clock
       v-btn(to="/search")
         v-icon $magnify
-      v-btn(to="/ranking")
-        v-icon $crown
       v-btn(to="/1")
         v-icon $account
 </template>
