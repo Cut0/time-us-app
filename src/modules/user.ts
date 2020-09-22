@@ -48,28 +48,34 @@ export default ({ root }: SetupContext) => {
       })
   }
 
-  async function create(userData: User) {
+  async function create(userData: User, token: string) {
     if (state.loading) return
     state.loading = true
-    return new UserModel().post(userData).finally(() => {
-      state.loading = false
-    })
+    return new UserModel()
+      .post(userData, { headers: { authorization: token } })
+      .finally(() => {
+        state.loading = false
+      })
   }
 
-  async function edit(userData: User) {
+  async function edit(userData: User, token: string) {
     if (state.loading) return
     state.loading = true
-    return new UserModel().patch(userId.value, userData).finally(() => {
-      state.loading = false
-    })
+    return new UserModel()
+      .patch(userId.value, userData, { headers: { authorization: token } })
+      .finally(() => {
+        state.loading = false
+      })
   }
 
-  async function del(userData: User) {
+  async function del(userData: User, token: string) {
     if (state.loading) return
     state.loading = true
-    return new UserModel().delete(userData.id).finally(() => {
-      state.loading = false
-    })
+    return new UserModel()
+      .delete(userData.id, { headers: { authorization: token } })
+      .finally(() => {
+        state.loading = false
+      })
   }
 
   async function getList(searchType?: string) {

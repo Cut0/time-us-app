@@ -35,28 +35,34 @@ export default ({ root }: SetupContext) => {
     }
   }
 
-  async function create(postData: Post) {
+  async function create(postData: Post, token: string) {
     if (state.loading) return
     state.loading = true
-    return new PostModel().post(postData).finally(() => {
-      state.loading = false
-    })
+    return new PostModel()
+      .post(postData, { headers: { authorization: token } })
+      .finally(() => {
+        state.loading = false
+      })
   }
 
-  async function edit(postData: Post) {
+  async function edit(postData: Post, token: string) {
     if (state.loading) return
     state.loading = true
-    return new PostModel().patch(postData.id, postData).finally(() => {
-      state.loading = false
-    })
+    return new PostModel()
+      .patch(postData.id, postData, { headers: { authorization: token } })
+      .finally(() => {
+        state.loading = false
+      })
   }
 
-  async function del(postData: Post) {
+  async function del(postData: Post, token: string) {
     if (state.loading) return
     state.loading = true
-    return new PostModel().delete(postData.id).finally(() => {
-      state.loading = false
-    })
+    return new PostModel()
+      .delete(postData.id, { headers: { authorization: token } })
+      .finally(() => {
+        state.loading = false
+      })
   }
 
   async function getList() {

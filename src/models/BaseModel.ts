@@ -56,7 +56,7 @@ export default abstract class BaseModel {
 
   public async delete(id: string | number, config: AxiosRequestConfig = {}) {
     return this.axios
-      .delete(``, { data: { id } })
+      .delete(``, { data: { id }, ...config })
       .then(this.postFetch.bind(this))
       .catch(this.postError.bind(this))
   }
