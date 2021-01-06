@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@vue/composition-api": "^0.6.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "chart.js": "^2.9.3",
     "core-js": "^3.6.5",
     "qs": "^6.9.4",
