@@ -19,7 +19,7 @@
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^8.4.2",
     "vue-router": "^3.3.2",
-    "vuetify": "^2.2.33"
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {
     "@types/chart.js": "^2.9.21",
